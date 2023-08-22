@@ -2,7 +2,7 @@
 
 namespace HelperClasses
 {
-    public class Class1
+    public class ApiHelper
     {
     }
 }

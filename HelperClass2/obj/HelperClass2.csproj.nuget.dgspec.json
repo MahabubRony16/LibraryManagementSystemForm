@@ -1,32 +1,32 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\HP\\Documents\\GitHub\\LibraryManagementSystemForm\\HelperClasses\\HelperClasses.csproj": {}
+    "C:\\Users\\HP\\Documents\\GitHub\\LibraryManagementSystemForm\\HelperClass2\\HelperClass2.csproj": {}
   },
   "projects": {
-    "C:\\Users\\HP\\Documents\\GitHub\\LibraryManagementSystemForm\\HelperClasses\\HelperClasses.csproj": {
+    "C:\\Users\\HP\\Documents\\GitHub\\LibraryManagementSystemForm\\HelperClass2\\HelperClass2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\HP\\Documents\\GitHub\\LibraryManagementSystemForm\\HelperClasses\\HelperClasses.csproj",
-        "projectName": "HelperClasses",
-        "projectPath": "C:\\Users\\HP\\Documents\\GitHub\\LibraryManagementSystemForm\\HelperClasses\\HelperClasses.csproj",
+        "projectUniqueName": "C:\\Users\\HP\\Documents\\GitHub\\LibraryManagementSystemForm\\HelperClass2\\HelperClass2.csproj",
+        "projectName": "HelperClass2",
+        "projectPath": "C:\\Users\\HP\\Documents\\GitHub\\LibraryManagementSystemForm\\HelperClass2\\HelperClass2.csproj",
         "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\HP\\Documents\\GitHub\\LibraryManagementSystemForm\\HelperClasses\\obj\\",
+        "outputPath": "C:\\Users\\HP\\Documents\\GitHub\\LibraryManagementSystemForm\\HelperClass2\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net5.0"
+          "net5.0-windows7.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net5.0": {
-            "targetAlias": "net5.0",
+          "net5.0-windows7.0": {
+            "targetAlias": "net5.0-windows",
             "projectReferences": {}
           }
         },
@@ -37,18 +37,8 @@
         }
       },
       "frameworks": {
-        "net5.0": {
-          "targetAlias": "net5.0",
-          "dependencies": {
-            "Microsoft.AspNet.WebApi.Client": {
-              "target": "Package",
-              "version": "[5.2.9, )"
-            },
-            "Newtonsoft.Json": {
-              "target": "Package",
-              "version": "[13.0.3, )"
-            }
-          },
+        "net5.0-windows7.0": {
+          "targetAlias": "net5.0-windows",
           "imports": [
             "net461",
             "net462",
@@ -62,6 +52,9 @@
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
+            },
+            "Microsoft.WindowsDesktop.App.WPF": {
+              "privateAssets": "none"
             }
           },
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.410\\RuntimeIdentifierGraph.json"
