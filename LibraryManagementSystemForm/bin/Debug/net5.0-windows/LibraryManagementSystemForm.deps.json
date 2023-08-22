@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v5.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v5.0": {
+      "LibraryManagementSystemForm/1.0.0": {
+        "runtime": {
+          "LibraryManagementSystemForm.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "LibraryManagementSystemForm/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
