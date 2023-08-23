@@ -10,3 +10,15 @@ C:\Users\HP\Documents\GitHub\LibraryManagementSystemForm\HelperClasses\obj\Debug
 C:\Users\HP\Documents\GitHub\LibraryManagementSystemForm\HelperClasses\obj\Debug\net5.0\HelperClasses.dll
 C:\Users\HP\Documents\GitHub\LibraryManagementSystemForm\HelperClasses\obj\Debug\net5.0\ref\HelperClasses.dll
 C:\Users\HP\Documents\GitHub\LibraryManagementSystemForm\HelperClasses\obj\Debug\net5.0\HelperClasses.pdb
+E:\CODE\GitHub\LibraryManagementSystemForm\HelperClasses\bin\Debug\net5.0\HelperClasses.deps.json
+E:\CODE\GitHub\LibraryManagementSystemForm\HelperClasses\bin\Debug\net5.0\HelperClasses.dll
+E:\CODE\GitHub\LibraryManagementSystemForm\HelperClasses\bin\Debug\net5.0\HelperClasses.pdb
+E:\CODE\GitHub\LibraryManagementSystemForm\HelperClasses\obj\Debug\net5.0\HelperClasses.csproj.AssemblyReference.cache
+E:\CODE\GitHub\LibraryManagementSystemForm\HelperClasses\obj\Debug\net5.0\HelperClasses.GeneratedMSBuildEditorConfig.editorconfig
+E:\CODE\GitHub\LibraryManagementSystemForm\HelperClasses\obj\Debug\net5.0\HelperClasses.AssemblyInfoInputs.cache
+E:\CODE\GitHub\LibraryManagementSystemForm\HelperClasses\obj\Debug\net5.0\HelperClasses.AssemblyInfo.cs
+E:\CODE\GitHub\LibraryManagementSystemForm\HelperClasses\obj\Debug\net5.0\HelperClasses.csproj.CoreCompileInputs.cache
+E:\CODE\GitHub\LibraryManagementSystemForm\HelperClasses\obj\Debug\net5.0\HelperClasses.dll
+E:\CODE\GitHub\LibraryManagementSystemForm\HelperClasses\obj\Debug\net5.0\refint\HelperClasses.dll
+E:\CODE\GitHub\LibraryManagementSystemForm\HelperClasses\obj\Debug\net5.0\HelperClasses.pdb
+E:\CODE\GitHub\LibraryManagementSystemForm\HelperClasses\obj\Debug\net5.0\ref\HelperClasses.dll
