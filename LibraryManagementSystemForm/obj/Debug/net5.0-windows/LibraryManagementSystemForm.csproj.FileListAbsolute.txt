@@ -20,3 +20,9 @@ C:\Users\HP\Documents\GitHub\LibraryManagementSystemForm\LibraryManagementSystem
 C:\Users\HP\Documents\GitHub\LibraryManagementSystemForm\LibraryManagementSystemForm\obj\Debug\net5.0-windows\ref\LibraryManagementSystemForm.dll
 C:\Users\HP\Documents\GitHub\LibraryManagementSystemForm\LibraryManagementSystemForm\obj\Debug\net5.0-windows\LibraryManagementSystemForm.pdb
 C:\Users\HP\Documents\GitHub\LibraryManagementSystemForm\LibraryManagementSystemForm\obj\Debug\net5.0-windows\LibraryManagementSystemForm.genruntimeconfig.cache
+C:\Users\HP\Documents\GitHub\LibraryManagementSystemForm\LibraryManagementSystemForm\bin\Debug\net5.0-windows\System.Net.Http.Formatting.dll
+C:\Users\HP\Documents\GitHub\LibraryManagementSystemForm\LibraryManagementSystemForm\bin\Debug\net5.0-windows\Newtonsoft.Json.dll
+C:\Users\HP\Documents\GitHub\LibraryManagementSystemForm\LibraryManagementSystemForm\bin\Debug\net5.0-windows\Newtonsoft.Json.Bson.dll
+C:\Users\HP\Documents\GitHub\LibraryManagementSystemForm\LibraryManagementSystemForm\bin\Debug\net5.0-windows\HelperClasses.dll
+C:\Users\HP\Documents\GitHub\LibraryManagementSystemForm\LibraryManagementSystemForm\bin\Debug\net5.0-windows\HelperClasses.pdb
+C:\Users\HP\Documents\GitHub\LibraryManagementSystemForm\LibraryManagementSystemForm\obj\Debug\net5.0-windows\LibraryManagementSystemForm.csproj.CopyComplete

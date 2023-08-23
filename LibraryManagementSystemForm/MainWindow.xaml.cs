@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -13,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using HelperClasses;
+using LibraryManagementSystemForm.Models;
 
 namespace LibraryManagementSystemForm
 {
@@ -25,6 +27,33 @@ namespace LibraryManagementSystemForm
         {
             InitializeComponent();
             ApiHelper.InitializeClient();
+        }
+
+
+        private async void applyBtn_Click(object sender, RoutedEventArgs e)
+        {
+            UserForRegistration userForRegistration = new UserForRegistration()
+            {
+                FirstName = firstNameTbx.Text,
+                LastName = lastNameTbx.Text,
+                Email = emailTbx.Text,
+                Contact = contactTbx.Text,
+                Address = addressTbx.Text,
+
+                Password = passwordTbx.Text,
+                PasswordConfirm = confirmPasswordTbx.Text
+            };
+
+            TestConnectionDto userInfo = new TestConnectionDto()
+            {
+                FirstName = firstNameTbx.Text,
+                LastName = lastNameTbx.Text,
+                te = 75
+            };
+
+            HttpStatusCode statusCode = await Processor.LoadInformationPost<UserForRegistration>("/Auth/Register", userForRegistration);
+            Console.WriteLine(statusCode.ToString());
+
         }
     }
 }
