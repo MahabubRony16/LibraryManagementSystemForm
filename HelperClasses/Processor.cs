@@ -11,7 +11,7 @@ namespace HelperClasses
 {
     public class Processor
     {
-        public async static Task<T> LoadInformation<T>(string url)
+        public async static Task<T> InformationGet<T>(string url)
         {
 
             using(HttpResponseMessage response = await ApiHelper.ApiClient.GetAsync(url))
@@ -28,15 +28,26 @@ namespace HelperClasses
             }
         }
 
-        public async static Task<HttpStatusCode> LoadInformationPost<T>(string url, T data)
+        public async static Task<HttpResponseMessage> InformationDelete(string url)
+        {
+
+            using (HttpResponseMessage response = await ApiHelper.ApiClient.DeleteAsync(url))
+            {
+                return response;
+            }
+        }
+
+        public async static Task<HttpResponseMessage> InformationPost<T>(string url, T data)
         {
             var jsonData = JsonConvert.SerializeObject(data);
             var contentData = new StringContent(jsonData, Encoding.UTF8, "application/json");
 
             using (HttpResponseMessage response = await ApiHelper.ApiClient.PostAsync(url, contentData))
             {
-                return response.StatusCode;
+                return response;
             }
         }
+
+        
     }
 }

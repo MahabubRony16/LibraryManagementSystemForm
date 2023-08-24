@@ -7,15 +7,57 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="AdminAreaPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Admin_Books.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Admin_Issues.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Admin_Users.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="BooksPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="LoginForm.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="RegistrationForm.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="RegistrationPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="AdminAreaPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Admin_Books.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Admin_Issues.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Admin_Users.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="BooksPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="LoginForm.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="RegistrationForm.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="RegistrationPage.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:LibraryManagementSystemForm"
         xmlns:Collections="clr-namespace:System.Collections;assembly=System.Runtime" x:Class="LibraryManagementSystemForm.MainWindow"
         mc:Ignorable="d"
-        Title="Library Management System" Height="410" Width="380">
+        Title="Library Management System" Height="450" Width="800" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20"/>
@@ -32,24 +32,13 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="20"/>
         </Grid.RowDefinitions>
-        <TextBlock Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="4" Margin="0,0,0,15" Text="Registration" FontSize="25" FontFamily="Calibri" TextAlignment="Center" FontWeight="Bold"/>
-
-        <TextBlock Grid.Row="2" Grid.Column="1" Margin="0,5,0,5" Text="First Name" FontSize="16" FontFamily="Centaur"/>
-        <TextBox x:Name="firstNameTbx" Grid.Row="2" Grid.Column="2" Margin="0,5,0,5" Width="130" HorizontalAlignment="Left"/>
-        <TextBlock Grid.Row="3" Grid.Column="1" Margin="0,5,0,5" Text="Last Name" FontSize="16" FontFamily="Centaur"/>
-        <TextBox x:Name="lastNameTbx" Grid.Row="3" Grid.Column="2" Margin="0,5,0,5" Width="130" HorizontalAlignment="Left"/>
-        <TextBlock Grid.Row="4" Grid.Column="1" Margin="0,5,0,5" Text="Email" FontSize="16" FontFamily="Centaur"/>
-        <TextBox x:Name="emailTbx" Grid.Row="4" Grid.Column="2" Margin="0,5,0,5" Width="200" HorizontalAlignment="Left"/>
-        <TextBlock Grid.Row="5" Grid.Column="1" Margin="0,5,0,5" Text="Contact" FontSize="16" FontFamily="Centaur"/>
-        <TextBox x:Name="contactTbx" Grid.Row="5" Grid.Column="2" Margin="0,5,0,5" Width="200" HorizontalAlignment="Left"/>
-        <TextBlock Grid.Row="6" Grid.Column="1" Margin="0,5,0,5" Text="Address" FontSize="16" FontFamily="Centaur"/>
-        <TextBox x:Name="addressTbx" Grid.Row="6" Grid.Column="2" Margin="0,5,0,5" Width="200" Height="60" HorizontalAlignment="Left"/>
-
-        <TextBlock Grid.Row="8" Grid.Column="1" Margin="0,5,0,5" Text="Password" FontSize="16" FontFamily="Centaur"/>
-        <TextBox x:Name="passwordTbx" Grid.Row="8" Grid.Column="2" Margin="0,5,0,5" Width="200" HorizontalAlignment="Left"/>
-        <TextBlock Grid.Row="9" Grid.Column="1" Margin="0,5,10,5" Text="Confirm Password" FontSize="16" FontFamily="Centaur"/>
-        <TextBox x:Name="confirmPasswordTbx" Grid.Row="9" Grid.Column="2" Margin="0,5,0,5" Width="200" HorizontalAlignment="Left"/>
-
-        <Button x:Name="applyBtn" Content="Apply" Grid.Row="10" Grid.Column="2" Margin="120,20,0,0" Width="80" Height="25" Click="applyBtn_Click"/>
+        <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal">
+            <Button x:Name="homeBtn" Content="Home" Width="80" Margin="5,0,5,0"/>
+            <Button x:Name="registrationBtn" Content="Sign Up" Width="80" Margin="5,0,5,0" Click="registrationBtn_Click"/>
+            <Button x:Name="loginFormBtn" Content="Sign In" Width="80" Margin="5,0,5,0" Click="loginFormBtn_Click"/>
+            <Button x:Name="booksPageBtn" Content="Books" Width="80" Margin="5,0,5,0" Click="booksPageBtn_Click"/>
+            <Button x:Name="adminAreaBtn" Content="Admin Area" Width="80" Margin="5,0,5,0" Click="adminAreaBtn_Click"/>
+        </StackPanel>
+        <Frame x:Name="mainFrm" Grid.Row="2" Grid.Column="1" Margin="10,0,0,0" NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>

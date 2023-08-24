@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LibraryManagementSystemForm"
         mc:Ignorable="d"
-        Title="Library Management System" Height="200" Width="380">
+        Title="Library Management System" Height="220" Width="380" WindowStyle="SingleBorderWindow" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20"/>
@@ -23,7 +23,7 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="20"/>
         </Grid.RowDefinitions>
-        <TextBlock Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="4" Margin="0,0,0,15" Text="Login" FontSize="25" FontFamily="Calibri" TextAlignment="Center" FontWeight="Bold"/>
+        <TextBlock Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="4" Margin="0,0,0,15" Text="Sign In" FontSize="25" FontFamily="Calibri" TextAlignment="Center" FontWeight="Bold"/>
 
         <TextBlock Grid.Row="2" Grid.Column="1" Margin="0,5,0,5" Text="Email" FontSize="16" FontFamily="Centaur"/>
         <TextBox x:Name="loginEmailTbx" Grid.Row="2" Grid.Column="2" Margin="0,5,0,5" Width="250" HorizontalAlignment="Left"/>

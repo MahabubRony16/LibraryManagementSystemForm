@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LibraryManagementSystemForm.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,7 +27,11 @@ namespace LibraryManagementSystemForm
 
         private void loginApplyBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            UserForLoginDto userForLoginDto = new UserForLoginDto()
+            {
+                Email = loginEmailTbx.Text,
+                Password = loginPasswordTbx.Text
+            };
         }
     }
 }
