@@ -37,6 +37,7 @@
             <Button x:Name="showBooksBtn" Content="All Books" Height="25" Margin="0,5,0,5" Click="showBooksBtn_Click"/>
             <Button x:Name="showusersBtn" Content="All Users" Height="25" Margin="0,5,0,5" Click="showusersBtn_Click"/>
             <Button x:Name="showIssuesBtn" Content="All Issues" Height="25" Margin="0,5,0,5" Click="showIssuesBtn_Click"/>
+            <Button x:Name="taskBtn" Content="Tasks" Height="25" Margin="0,5,0,5" Click="taskBtn_Click"/>
         </StackPanel>
         <StackPanel Grid.Row="1" Grid.Column="2">
             <Frame x:Name="adminFrm" NavigationUIVisibility="Hidden"/>

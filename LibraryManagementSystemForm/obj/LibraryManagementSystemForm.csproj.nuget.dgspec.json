@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\HP\\Documents\\GitHub\\LibraryManagementSystemForm\\LibraryManagementSystemForm\\LibraryManagementSystemForm.csproj": {}
+    "E:\\CODE\\GitHub\\LibraryManagementSystemForm\\LibraryManagementSystemForm\\LibraryManagementSystemForm.csproj": {}
   },
   "projects": {
-    "C:\\Users\\HP\\Documents\\GitHub\\LibraryManagementSystemForm\\HelperClasses\\HelperClasses.csproj": {
+    "E:\\CODE\\GitHub\\LibraryManagementSystemForm\\HelperClasses\\HelperClasses.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\HP\\Documents\\GitHub\\LibraryManagementSystemForm\\HelperClasses\\HelperClasses.csproj",
+        "projectUniqueName": "E:\\CODE\\GitHub\\LibraryManagementSystemForm\\HelperClasses\\HelperClasses.csproj",
         "projectName": "HelperClasses",
-        "projectPath": "C:\\Users\\HP\\Documents\\GitHub\\LibraryManagementSystemForm\\HelperClasses\\HelperClasses.csproj",
-        "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\HP\\Documents\\GitHub\\LibraryManagementSystemForm\\HelperClasses\\obj\\",
+        "projectPath": "E:\\CODE\\GitHub\\LibraryManagementSystemForm\\HelperClasses\\HelperClasses.csproj",
+        "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
+        "outputPath": "E:\\CODE\\GitHub\\LibraryManagementSystemForm\\HelperClasses\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -55,7 +55,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -64,25 +65,25 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.410\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\HP\\Documents\\GitHub\\LibraryManagementSystemForm\\LibraryManagementSystemForm\\LibraryManagementSystemForm.csproj": {
+    "E:\\CODE\\GitHub\\LibraryManagementSystemForm\\LibraryManagementSystemForm\\LibraryManagementSystemForm.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\HP\\Documents\\GitHub\\LibraryManagementSystemForm\\LibraryManagementSystemForm\\LibraryManagementSystemForm.csproj",
+        "projectUniqueName": "E:\\CODE\\GitHub\\LibraryManagementSystemForm\\LibraryManagementSystemForm\\LibraryManagementSystemForm.csproj",
         "projectName": "LibraryManagementSystemForm",
-        "projectPath": "C:\\Users\\HP\\Documents\\GitHub\\LibraryManagementSystemForm\\LibraryManagementSystemForm\\LibraryManagementSystemForm.csproj",
-        "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\HP\\Documents\\GitHub\\LibraryManagementSystemForm\\LibraryManagementSystemForm\\obj\\",
+        "projectPath": "E:\\CODE\\GitHub\\LibraryManagementSystemForm\\LibraryManagementSystemForm\\LibraryManagementSystemForm.csproj",
+        "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
+        "outputPath": "E:\\CODE\\GitHub\\LibraryManagementSystemForm\\LibraryManagementSystemForm\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net5.0-windows7.0"
+          "net5.0-windows"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
@@ -92,8 +93,8 @@
           "net5.0-windows7.0": {
             "targetAlias": "net5.0-windows",
             "projectReferences": {
-              "C:\\Users\\HP\\Documents\\GitHub\\LibraryManagementSystemForm\\HelperClasses\\HelperClasses.csproj": {
-                "projectPath": "C:\\Users\\HP\\Documents\\GitHub\\LibraryManagementSystemForm\\HelperClasses\\HelperClasses.csproj"
+              "E:\\CODE\\GitHub\\LibraryManagementSystemForm\\HelperClasses\\HelperClasses.csproj": {
+                "projectPath": "E:\\CODE\\GitHub\\LibraryManagementSystemForm\\HelperClasses\\HelperClasses.csproj"
               }
             }
           }
@@ -113,7 +114,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -125,7 +127,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.410\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
         }
       }
     }

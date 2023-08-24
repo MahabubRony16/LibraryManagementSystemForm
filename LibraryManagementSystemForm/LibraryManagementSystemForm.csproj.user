@@ -16,6 +16,9 @@
     <Compile Update="Admin_Issues.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Admin_Tasks.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Admin_Users.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -31,6 +34,9 @@
     <Compile Update="RegistrationPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="SearchWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="AdminAreaPage.xaml">
@@ -40,6 +46,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Admin_Issues.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Admin_Tasks.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Admin_Users.xaml">
@@ -58,6 +67,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="RegistrationPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="SearchWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

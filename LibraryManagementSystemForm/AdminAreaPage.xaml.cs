@@ -41,5 +41,10 @@ namespace LibraryManagementSystemForm
         {
             adminFrm.Content = new Admin_Issues();
         }
+
+        private void taskBtn_Click(object sender, RoutedEventArgs e)
+        {
+            adminFrm.Content = new Admin_Tasks();
+        }
     }
 }
