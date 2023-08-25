@@ -6,12 +6,14 @@
       xmlns:local="clr-namespace:LibraryManagementSystemForm"
       xmlns:data="using:LibraryManagementSystemForm.Models"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="380" d:DesignWidth="800"
       Title="Books" Foreground="Black" Background="White">
 
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="*"/>
@@ -42,7 +44,17 @@
             </ComboBox.ItemTemplate>
         </ComboBox>-->
         <!--<ListView ItemsSource="{Binding Books}">-->
-        <ListView x:Name="booksCvw" Grid.Row="1" Grid.Column="1" Grid.RowSpan="2" Width="500" Height="320" Margin="0,20,0,0" MouseDoubleClick="booksCvw_MouseDoubleClick">
+        <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" Width="500" Margin="0,10,0,0">
+            <ComboBox x:Name="searchCategoryCbx" Width="80" Height="22" SelectedIndex="0" Foreground="#FF686868">
+                <ComboBoxItem Content="Title"/>
+                <ComboBoxItem Content="Author"/>
+                <ComboBoxItem Content="Publisher"/>
+                <ComboBoxItem Content="Genre"/>
+            </ComboBox>
+            <TextBox x:Name="searchTbx" Width="340" />
+            <Button x:Name="searchBtn" Content="Search" Width="70" Margin="10,0,0,0" Click="searchBookBtn_Click"/>
+        </StackPanel>
+        <ListView x:Name="booksCvw" Grid.Row="2" Grid.Column="1" Grid.RowSpan="2" Width="500" Height="290" Margin="0,5,0,0" MouseDoubleClick="booksCvw_MouseDoubleClick">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Vertical" Margin="0,5,0,5">
@@ -52,14 +64,19 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <StackPanel Grid.Row="1" Grid.Column="2" Width="200" Height="100" Margin="20,20,0,0" VerticalAlignment="Top">
+        <StackPanel Grid.Row="2" Grid.Column="2" Width="200" Height="100" Margin="20,20,0,0" VerticalAlignment="Top">
             <TextBlock x:Name="detailNameTbl" FontSize="18" HorizontalAlignment="Stretch" TextAlignment="Center" FontWeight="Bold" TextWrapping="Wrap" />
             <TextBlock x:Name="detailAuthorTbl" FontSize="16" HorizontalAlignment="Stretch" TextAlignment="Center" TextWrapping="Wrap" />
             <TextBlock x:Name="detailPublisherTbl" Margin="0,10,0,0" FontSize="13" HorizontalAlignment="Stretch" TextAlignment="Center"/>
             <TextBlock x:Name="detailGenreTbl" FontSize="13" HorizontalAlignment="Stretch" TextAlignment="Center"/>
         </StackPanel>
-        <StackPanel Grid.Row="2" Grid.Column="2" Margin="30,0,0,0" Orientation="Vertical">
+        <StackPanel Grid.Row="3" Grid.Column="2" Margin="30,0,0,0" Orientation="Vertical">
             <Button x:Name="issueBookBtn" Content="Issue Book" Width="150" Height="35" Margin="0,5,0,5" FontSize="14" Click="issueBookBtn_Click"/>
+        </StackPanel>
+        <StackPanel Grid.Row="4" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,5,0,0">
+            <Button x:Name="prevBtn" Content="Previous" Width="60" Margin="0,0,5,0" Click="prevBtn_Click"/>
+            <TextBlock x:Name="pageNoTbl" Width="60" TextAlignment="Center" FontWeight="Bold"/>
+            <Button x:Name="nextBtn" Content="Next" Width="60" Margin="5,0,0,0" Click="nextBtn_Click"/>
         </StackPanel>
     </Grid>
 </Page>

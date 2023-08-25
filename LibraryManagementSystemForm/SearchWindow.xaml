@@ -28,10 +28,13 @@
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal">
             <ComboBox x:Name="searchCategoryCbx" Width="120" Height="30">
-                
+                <ComboBoxItem Content="Title"/>
+                <ComboBoxItem Content="Author"/>
+                <ComboBoxItem Content="Publisher"/>
+                <ComboBoxItem Content="Genre"/>
             </ComboBox>
             <TextBox x:Name="searchTbx" Width="350"/>
-            <Button x:Name="searchBtn" Content="Search" Width="80" Margin="10,0,0,0"/>
+            <Button x:Name="searchBtn" Content="Search" Width="80" Margin="10,0,0,0" Click="searchBtn_Click"/>
         </StackPanel>
     </Grid>
 </Window>

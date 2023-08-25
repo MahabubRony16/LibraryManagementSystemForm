@@ -30,7 +30,7 @@ namespace LibraryManagementSystemForm
             UserForLoginDto userForLoginDto = new UserForLoginDto()
             {
                 Email = loginEmailTbx.Text,
-                Password = loginPasswordTbx.Text
+                Password = loginPasswordTbx.Password.ToString()
             };
         }
     }

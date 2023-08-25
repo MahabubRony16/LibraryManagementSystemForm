@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LibraryManagementSystemForm.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,30 @@ namespace LibraryManagementSystemForm
         public SearchWindow()
         {
             InitializeComponent();
+        }
+
+        private void searchBtn_Click(object sender, RoutedEventArgs e)
+        {
+            string searchCriteria = searchCategoryCbx.SelectedItem.ToString();
+
+            SearchCriteriaBook searchBook = new SearchCriteriaBook();
+            if (searchCriteria == "Title")
+            {
+                searchBook.Name = searchTbx.Text;
+            }
+            else if (searchCriteria == "Author")
+            {
+                searchBook.Author = searchTbx.Text;
+            }
+            else if (searchCriteria == "Publisher")
+            {
+                searchBook.Publisher = searchTbx.Text;
+            }
+            else if (searchCriteria == "Genre")
+            {
+                searchBook.Genre = searchTbx.Text;
+            }
+
         }
     }
 }

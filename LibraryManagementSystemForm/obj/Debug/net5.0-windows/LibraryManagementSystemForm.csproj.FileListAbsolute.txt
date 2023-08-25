@@ -88,3 +88,7 @@ E:\CODE\GitHub\LibraryManagementSystemForm\LibraryManagementSystemForm\obj\Debug
 E:\CODE\GitHub\LibraryManagementSystemForm\LibraryManagementSystemForm\obj\Debug\net5.0-windows\RegistrationPage.baml
 E:\CODE\GitHub\LibraryManagementSystemForm\LibraryManagementSystemForm\obj\Debug\net5.0-windows\Admin_Tasks.g.cs
 E:\CODE\GitHub\LibraryManagementSystemForm\LibraryManagementSystemForm\obj\Debug\net5.0-windows\Admin_Tasks.baml
+C:\Users\HP\Documents\GitHub\LibraryManagementSystemForm\LibraryManagementSystemForm\obj\Debug\net5.0-windows\Admin_Tasks.g.cs
+C:\Users\HP\Documents\GitHub\LibraryManagementSystemForm\LibraryManagementSystemForm\obj\Debug\net5.0-windows\SearchWindow.g.cs
+C:\Users\HP\Documents\GitHub\LibraryManagementSystemForm\LibraryManagementSystemForm\obj\Debug\net5.0-windows\Admin_Tasks.baml
+C:\Users\HP\Documents\GitHub\LibraryManagementSystemForm\LibraryManagementSystemForm\obj\Debug\net5.0-windows\SearchWindow.baml

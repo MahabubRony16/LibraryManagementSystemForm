@@ -28,7 +28,8 @@
         <TextBlock Grid.Row="2" Grid.Column="1" Margin="0,5,0,5" Text="Email" FontSize="16" FontFamily="Centaur"/>
         <TextBox x:Name="loginEmailTbx" Grid.Row="2" Grid.Column="2" Margin="0,5,0,5" Width="250" HorizontalAlignment="Left"/>
         <TextBlock Grid.Row="3" Grid.Column="1" Margin="0,5,10,5" Text="Password" FontSize="16" FontFamily="Centaur"/>
-        <TextBox x:Name="loginPasswordTbx" Grid.Row="3" Grid.Column="2" Margin="0,5,0,5" Width="200" HorizontalAlignment="Left"/>
+        <!--<TextBox x:Name="loginPasswordTbx" Grid.Row="3" Grid.Column="2" Margin="0,5,0,5" Width="200" HorizontalAlignment="Left"/>-->
+        <PasswordBox x:Name="loginPasswordTbx" Grid.Row="3" Grid.Column="2" Margin="0,5,0,5" Width="200" HorizontalAlignment="Left" />
 
         <Button x:Name="loginApplyBtn" Content="Apply" Grid.Row="4" Grid.Column="2" Margin="170,20,0,0" Width="80" Height="25" Click="loginApplyBtn_Click"/>
     </Grid>
