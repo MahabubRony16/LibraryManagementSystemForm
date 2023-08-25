@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\HP\Documents\GitHub\LibraryManagementSystemForm\LibraryManagementSystemForm\obj\Debug\net5.0-windows\
+E:\CODE\GitHub\LibraryManagementSystemForm\LibraryManagementSystemForm\obj\Debug\net5.0-windows\
 LibraryManagementSystemForm
 none
 false
 TRACE;DEBUG;NET;NET5_0;NETCOREAPP
-C:\Users\HP\Documents\GitHub\LibraryManagementSystemForm\LibraryManagementSystemForm\App.xaml
+E:\CODE\GitHub\LibraryManagementSystemForm\LibraryManagementSystemForm\App.xaml
 11727588877
 
 22-1187082650
-197433164781
+197-1618644899
 AdminAreaPage.xaml;Admin_Books.xaml;Admin_Issues.xaml;Admin_Tasks.xaml;Admin_Users.xaml;BooksPage.xaml;LoginForm.xaml;MainWindow.xaml;RegistrationForm.xaml;RegistrationPage.xaml;SearchWindow.xaml;
 
-False
+True
 

@@ -13,18 +13,24 @@ namespace HelperClasses
     {
         public async static Task<T> InformationGet<T>(string url)
         {
-
-            using(HttpResponseMessage response = await ApiHelper.ApiClient.GetAsync(url))
+            try
             {
-                if(response.IsSuccessStatusCode)
+                using(HttpResponseMessage response = await ApiHelper.ApiClient.GetAsync(url))
                 {
-                    T result = await response.Content.ReadAsAsync<T>();
-                    return result;
+                    if(response.IsSuccessStatusCode)
+                    {
+                        T result = await response.Content.ReadAsAsync<T>();
+                        return result;
+                    }
+                    else
+                    {
+                        throw new Exception(response.ReasonPhrase);
+                    }
                 }
-                else
-                {
-                    throw new Exception(response.ReasonPhrase);
-                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
             }
         }
 
