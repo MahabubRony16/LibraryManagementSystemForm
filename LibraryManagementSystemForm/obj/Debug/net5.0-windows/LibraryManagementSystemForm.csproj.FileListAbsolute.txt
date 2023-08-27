@@ -94,3 +94,5 @@ C:\Users\HP\Documents\GitHub\LibraryManagementSystemForm\LibraryManagementSystem
 C:\Users\HP\Documents\GitHub\LibraryManagementSystemForm\LibraryManagementSystemForm\obj\Debug\net5.0-windows\SearchWindow.baml
 E:\CODE\GitHub\LibraryManagementSystemForm\LibraryManagementSystemForm\obj\Debug\net5.0-windows\SearchWindow.g.cs
 E:\CODE\GitHub\LibraryManagementSystemForm\LibraryManagementSystemForm\obj\Debug\net5.0-windows\SearchWindow.baml
+E:\CODE\GitHub\LibraryManagementSystemForm\LibraryManagementSystemForm\obj\Debug\net5.0-windows\Admin_Tables.g.cs
+E:\CODE\GitHub\LibraryManagementSystemForm\LibraryManagementSystemForm\obj\Debug\net5.0-windows\Admin_Tables.baml

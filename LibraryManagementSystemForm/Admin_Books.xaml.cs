@@ -54,7 +54,7 @@ namespace LibraryManagementSystemForm
 
             if (txtBox != null)
             {
-                TextBox searcTbx = txtBox;
+                TextBox searchTbx = txtBox;
                 if (!string.IsNullOrWhiteSpace(searchTbx.Text))
                 {
                     if (searchCriteria == "Title")

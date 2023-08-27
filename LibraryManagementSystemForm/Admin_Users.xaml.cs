@@ -22,15 +22,75 @@ namespace LibraryManagementSystemForm
     /// </summary>
     public partial class Admin_Users : Page
     {
+        private int _pageNo;
         public Admin_Users()
         {
             InitializeComponent();
-            LoadUsers_Get();
+            _pageNo = 1;
+            LoadUsers_Get(1, 50);
         }
-        public async void LoadUsers_Get()
+        public async void LoadUsers_Get(int page = 0, int itemsPerPage = 0)
         {
-            IEnumerable<User> userList = await Processor.InformationGet<IEnumerable<User>>("/User/GetUsers/0/None");
+            string searchString = CreateSearchString(searchTbx);
+            string uri = $"/User/GetUsers/{page}/{itemsPerPage}/{searchString}";
+            IEnumerable<User> userList = await Processor.InformationGet<IEnumerable<User>>(uri);
             AllUsers.ItemsSource = userList;
+
+            pageNoTbl.Text = "Page " + _pageNo.ToString();
+        }
+
+        public string CreateSearchString(TextBox txtBox = null)
+        {
+            string searchCriteria = ((ComboBoxItem)searchCategoryCbx.SelectedItem).Content.ToString();
+
+            int userId = 0;
+            string name = "None";
+
+            if (txtBox != null)
+            {
+                TextBox searchTbx = txtBox;
+                if (!string.IsNullOrWhiteSpace(searchTbx.Text))
+                {
+                    if (searchCriteria == "User ID")
+                    {
+                        userId = Int32.Parse(searchTbx.Text);
+                    }
+                    else if (searchCriteria == "Name")
+                    {
+                        name = searchTbx.Text;
+                    }
+                }
+            }
+            return $"{userId}/{name}";
+        }
+
+        private void searchBookBtn_Click(object sender, RoutedEventArgs e)
+        {
+            _pageNo = 1;
+            LoadUsers_Get(1, 50);
+
+        }
+
+        private void prevBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (_pageNo > 1)
+            {
+                if (_pageNo == 2)
+                {
+                    prevBtn.IsEnabled = false;
+                }
+                _pageNo--;
+                LoadUsers_Get(_pageNo, 50);
+
+            }
+        }
+
+        private void nextBtn_Click(object sender, RoutedEventArgs e)
+        {
+            _pageNo++;
+            LoadUsers_Get(_pageNo, 50);
+
+            prevBtn.IsEnabled = true;
         }
     }
 }

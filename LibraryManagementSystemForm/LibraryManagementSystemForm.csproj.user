@@ -16,6 +16,9 @@
     <Compile Update="Admin_Issues.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Admin_Tables.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Admin_Tasks.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -46,6 +49,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Admin_Issues.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Admin_Tables.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Admin_Tasks.xaml">

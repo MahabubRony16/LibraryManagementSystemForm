@@ -6,14 +6,14 @@
       xmlns:local="clr-namespace:LibraryManagementSystemForm"
       mc:Ignorable="d" 
       d:DesignHeight="380" d:DesignWidth="650"
-      Title="Admin_Tasks" Background="White">
+      Title="Admin_Tasks" Background="White" >
 
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="30"/>
-            <ColumnDefinition Width="auto"/>
-            <ColumnDefinition Width="50"/>
             <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="*"/>
@@ -37,33 +37,35 @@
             <RowDefinition Height="10"/>
         </Grid.RowDefinitions>
 
-        <StackPanel Grid.Row="1" Grid.Column="1">
-            <Button x:Name="addBookBtn" Content="Add Book" Width="80" Height="30"/>
-        </StackPanel>
 
-        <TextBlock Grid.Row="1" Grid.Column="3" Margin="0,5,0,5" Text="Book ID" FontSize="16" FontFamily="Centaur"/>
-        <TextBox x:Name="bookIdTbx" Grid.Row="1" Grid.Column="4" Margin="0,5,0,5" Width="130" HorizontalAlignment="Left"/>
+        <TextBlock Grid.Row="1" Grid.Column="1" Margin="0,5,0,5" Text="Book ID" FontSize="16" FontFamily="Centaur"/>
+        <TextBox x:Name="bookIdTbx" Grid.Row="1" Grid.Column="2" Margin="0,5,0,5" Width="130" HorizontalAlignment="Left"/>
         
-        <TextBlock Grid.Row="2" Grid.Column="3" Margin="0,5,0,5" Text="Name" FontSize="16" FontFamily="Centaur"/>
-        <TextBox x:Name="nameTbx" Grid.Row="2" Grid.Column="4" Margin="0,5,0,5" Width="250" HorizontalAlignment="Left"/>
+        <TextBlock Grid.Row="2" Grid.Column="1" Margin="0,5,0,5" Text="Name" FontSize="16" FontFamily="Centaur"/>
+        <TextBox x:Name="nameTbx" Grid.Row="2" Grid.Column="2" Margin="0,5,0,5" Width="250" HorizontalAlignment="Left" TextWrapping="Wrap"/>
 
-        <TextBlock Grid.Row="3" Grid.Column="3" Margin="0,5,0,5" Text="Author" FontSize="16" FontFamily="Centaur"/>
-        <TextBox x:Name="authorTbx" Grid.Row="3" Grid.Column="4" Margin="0,5,0,5" Width="250" HorizontalAlignment="Left"/>
+        <TextBlock Grid.Row="3" Grid.Column="1" Margin="0,5,0,5" Text="Author" FontSize="16" FontFamily="Centaur"/>
+        <TextBox x:Name="authorTbx" Grid.Row="3" Grid.Column="2" Margin="0,5,0,5" Width="250" HorizontalAlignment="Left"/>
 
-        <TextBlock Grid.Row="4" Grid.Column="3" Margin="0,5,0,5" Text="Publisher" FontSize="16" FontFamily="Centaur"/>
-        <TextBox x:Name="publisherTbx" Grid.Row="4" Grid.Column="4" Margin="0,5,0,5" Width="250" HorizontalAlignment="Left"/>
+        <TextBlock Grid.Row="4" Grid.Column="1" Margin="0,5,0,5" Text="Publisher" FontSize="16" FontFamily="Centaur"/>
+        <TextBox x:Name="publisherTbx" Grid.Row="4" Grid.Column="2" Margin="0,5,0,5" Width="250" HorizontalAlignment="Left"/>
 
-        <TextBlock Grid.Row="5" Grid.Column="3" Margin="0,5,0,5" Text="Genre" FontSize="16" FontFamily="Centaur"/>
-        <TextBox x:Name="genreTbx" Grid.Row="5" Grid.Column="4" Margin="0,5,0,5" Width="130" HorizontalAlignment="Left"/>
+        <TextBlock Grid.Row="5" Grid.Column="1" Margin="0,5,0,5" Text="Genre" FontSize="16" FontFamily="Centaur"/>
+        <TextBox x:Name="genreTbx" Grid.Row="5" Grid.Column="2" Margin="0,5,0,5" Width="130" HorizontalAlignment="Left"/>
 
-        <TextBlock Grid.Row="6" Grid.Column="3" Margin="0,5,0,5" Text="Price" FontSize="16" FontFamily="Centaur"/>
-        <TextBox x:Name="priceTbx" Grid.Row="6" Grid.Column="4" Margin="0,5,0,5" Width="105" HorizontalAlignment="Left"/>
+        <TextBlock Grid.Row="6" Grid.Column="1" Margin="0,5,0,5" Text="Price" FontSize="16" FontFamily="Centaur"/>
+        <TextBox x:Name="priceTbx" Grid.Row="6" Grid.Column="2" Margin="0,5,0,5" Width="105" HorizontalAlignment="Left"/>
 
-        <TextBlock Grid.Row="7" Grid.Column="3" Margin="0,5,0,5" Text="Purchase Date" FontSize="16" FontFamily="Centaur"/>
-        <DatePicker Grid.Row="7" Grid.Column="4" Height="23" HorizontalAlignment="Left" Margin="0,0,0,0" Name="purchaseDateDpc" VerticalAlignment="Center" Width="105" />
+        <TextBlock Grid.Row="7" Grid.Column="1" Margin="0,5,0,5" Text="Purchase Date" FontSize="16" FontFamily="Centaur"/>
+        <DatePicker Grid.Row="7" Grid.Column="2" Height="23" HorizontalAlignment="Left" Margin="0,0,0,0" Name="purchaseDateDpc" VerticalAlignment="Center" Width="105" />
 
-        <TextBlock Grid.Row="8" Grid.Column="3" Margin="0,5,0,5" Text="Quantity" FontSize="16" FontFamily="Centaur"/>
-        <TextBox x:Name="quantityTbx" Grid.Row="8" Grid.Column="4" Margin="0,5,0,5" Width="50" HorizontalAlignment="Left"/>
+        <TextBlock Grid.Row="8" Grid.Column="1" Margin="0,5,0,5" Text="Quantity" FontSize="16" FontFamily="Centaur"/>
+        <TextBox x:Name="quantityTbx" Grid.Row="8" Grid.Column="2" Margin="0,5,0,5" Width="50" HorizontalAlignment="Left"/>
+
+        <StackPanel Grid.Row="9" Grid.Column="1" Margin="0,20,0,0" Orientation="Horizontal" Grid.ColumnSpan="2">
+            <Button x:Name="addBookBtn" Content="Add Book" Width="80" Height="25" Margin="0,0,5,0"/>
+            <Button x:Name="editBookBtn" Content="Edit Book" Width="80" Height="25" Margin="5,0,5,0"/>
+        </StackPanel>
 
     </Grid>
 </Page>
