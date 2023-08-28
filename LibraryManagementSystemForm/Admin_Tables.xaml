@@ -34,7 +34,7 @@
             <RowDefinition Height="10"/>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" Width="600" Margin="0,10,0,10">
-            <ComboBox x:Name="tableContentTypeCbx" Width="80" Height="22" SelectedIndex="0" Margin="0,0,60,0" Foreground="#FF686868" DropDownClosed="tableContentTypeCbx_DropDownClosed">
+            <ComboBox x:Name="tableContentTypeCbx" Width="80" Height="22" SelectedIndex="0" Margin="0,0,60,0" Foreground="Black" DropDownClosed="tableContentTypeCbx_DropDownClosed">
                 <ComboBoxItem Content="Books"/>
                 <ComboBoxItem Content="Users"/>
                 <ComboBoxItem Content="Issues"/>
@@ -46,7 +46,8 @@
         <DataGrid x:Name="contentTableDgr" Grid.Row="2" Grid.Column="1" MaxWidth="600" MaxHeight="280" Margin="0,0,0,0" IsReadOnly="True">
             <DataGrid.ContextMenu>
                 <ContextMenu>
-                    <MenuItem Header="Edit" Click="MenuItem_Click" />
+                    <MenuItem x:Name="editItemMenu" Header="Edit" Click="editItemMenu_Click" />
+                    <MenuItem x:Name="deleteItemMenu" Header="Delete" Click="deleteItemMenu_Click" />
                 </ContextMenu>
             </DataGrid.ContextMenu>
         </DataGrid>

@@ -3,6 +3,7 @@ using LibraryManagementSystemForm.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -23,87 +24,24 @@ namespace LibraryManagementSystemForm
     public partial class Admin_Tables : Page
     {
         private Dictionary<string, string> _searchSubcategories;
-        private Dictionary<string, string> _searchStringStarting;
         private int _pageNo;
         private int _itemsPerPageForAdmin;
         private string _mainCategoryName;
         private string _searchSubcategoryName;
-        
+        private Reusable _reusable;
         public Admin_Tables()
         {
             InitializeComponent();
-
-            InitializeDictionarys();
+            _reusable = new Reusable();
             _pageNo = 1;
             _itemsPerPageForAdmin = 50;
             SetSubcategories();
         }
-        private void InitializeDictionarys()
-        {
-            _searchStringStarting = new Dictionary<string, string>()
-            {
-                { "Books", "Book/GetBooks"},
-                { "Users", "User/GetUsers"},
-                { "Issues", "Issue/GetIssues"}
-            };
-        }
-        private Dictionary<string, string> SetSearchSubcategories(string mainCategoryName) 
-        {
-            if(mainCategoryName == "Books")
-            {
-                return new Dictionary<string, string>()
-                {
-                    { "Book ID", "0"},
-                    { "Title", "None"},
-                    { "Author", "None"},
-                    { "Publisher", "None"},
-                    { "Genre", "None"}
-                };
-            }
-            else if (mainCategoryName == "Users")
-            {
-                return new Dictionary<string, string>()
-                {
-                    { "User ID", "0"},
-                    { "Name", "None"}
-                };
-            }
-            else if (mainCategoryName == "Issues")
-            {
-                return new Dictionary<string, string>()
-                {
-                    { "Issue ID", "0"},
-                    { "Book ID", "0"},
-                    { "User ID", "0"}
-                };
-            }
-
-            return new Dictionary<string, string>();
-
-        }
-
-        public string CreateSearchString(string mainCategoryName, string searchSubcategoryName, string searchBoxContent, int page = 0, int itemsPerPage = 0)
-        {
-            _searchSubcategories = SetSearchSubcategories(mainCategoryName);
-            string searchString = $"{_searchStringStarting[_mainCategoryName]}/{page}/{itemsPerPage}";
-
-            if (!string.IsNullOrWhiteSpace(searchBoxContent))
-            {
-                _searchSubcategories[searchSubcategoryName] = searchBoxContent;
-            }  
-            
-            foreach (var item in _searchSubcategories)
-            {
-                searchString += $"/{item.Value}";
-            }
-
-            return searchString;
-        }
 
         public async void GetContentFromApiToTable<T>(int page = 0, int itemsPerPage = 0)
         {
-            string uri = CreateSearchString(_mainCategoryName, _searchSubcategoryName, searchTbx.Text, page, itemsPerPage);
-            //MessageBox.Show(uri);
+            string uri = _reusable.CreateSearchString(_mainCategoryName, _searchSubcategoryName, searchTbx.Text, page, itemsPerPage);
+            MessageBox.Show(uri);
             IEnumerable<T> contents = await Processor.InformationGet<IEnumerable<T>>(uri);
             contentTableDgr.ItemsSource = contents;
         }
@@ -155,7 +93,7 @@ namespace LibraryManagementSystemForm
         private void SetSubcategories()
         {
             _mainCategoryName = ((ComboBoxItem)tableContentTypeCbx.SelectedItem).Content.ToString();
-            _searchSubcategories = SetSearchSubcategories(_mainCategoryName);
+            _searchSubcategories = _reusable.SetSearchSubcategories(_mainCategoryName);
             List<string> subcategories = new List<string>(_searchSubcategories.Keys);
             searchCategoryCbx.ItemsSource = subcategories;
             searchCategoryCbx.SelectedIndex = 0;
@@ -165,33 +103,97 @@ namespace LibraryManagementSystemForm
 
         private void tableContentTypeCbx_DropDownClosed(object sender, EventArgs e)
         {
+            searchTbx.Text = String.Empty;
             SetSubcategories();
         }
 
         private void searchCategoryCbx_DropDownClosed(object sender, EventArgs e)
         {
-            _searchSubcategories = SetSearchSubcategories(_mainCategoryName);
+            _searchSubcategories = _reusable.SetSearchSubcategories(_mainCategoryName);
             _searchSubcategoryName = searchCategoryCbx.SelectedItem.ToString();
         }
 
-        private async void MenuItem_Click(object sender, RoutedEventArgs e)
+        private async void editItemMenu_Click(object sender, RoutedEventArgs e)
         {
             
-            var selected = (Book)contentTableDgr.SelectedItem;
-            int bookId = selected.BookId;
+            
 
-            string uri = CreateSearchString("Books", "Book ID", bookId.ToString(), 1, 1);
-            IEnumerable<Book> contents = await Processor.InformationGet<IEnumerable<Book>>(uri);
-            Book bookToEdit = contents.FirstOrDefault();
-            if (bookToEdit != null) 
+            if(_mainCategoryName == "Books")
             {
-                Admin_Tasks adminFrm = new Admin_Tasks(bookToEdit);
-                NavigationService.Navigate(adminFrm);
+                var selected = (Book)contentTableDgr.SelectedItem;
+                int bookId = selected.BookId;
+                string uri = _reusable.CreateSearchString("Books", "Book ID", bookId.ToString(), 1, 1);
+                IEnumerable<Book> contents = await Processor.InformationGet<IEnumerable<Book>>(uri);
+                Book bookToEdit = contents.FirstOrDefault();
+                if (bookToEdit != null) 
+                {
+                    Admin_Tasks adminFrm = new Admin_Tasks(bookToEdit);
+                    NavigationService.Navigate(adminFrm);
+                }
+            }
+            else if (_mainCategoryName == "Users")
+            {
+                var selected = (User)contentTableDgr.SelectedItem;
+                int userId = selected.UserId;
+                string uri = _reusable.CreateSearchString("Users", "User ID", userId.ToString(), 1, 1);
+                IEnumerable<User> contents = await Processor.InformationGet<IEnumerable<User>>(uri);
+                User userToEdit = contents.FirstOrDefault();
+                if (userToEdit != null)
+                {
+                    Admin_Users adminFrm = new Admin_Users(userToEdit);
+                    NavigationService.Navigate(adminFrm);
+                }
+            }
+            else if (_mainCategoryName == "Issues")
+            {
+                var selected = (Issue)contentTableDgr.SelectedItem;
+                int issueId = selected.IssueId;
+                string uri = _reusable.CreateSearchString("Issues", "Issue ID", issueId.ToString(), 1, 1);
+                IEnumerable<Issue> contents = await Processor.InformationGet<IEnumerable<Issue>>(uri);
+                Issue issueToEdit = contents.FirstOrDefault();
+                if (issueToEdit != null)
+                {
+                    Admin_Issues adminFrm = new Admin_Issues(issueToEdit);
+                    NavigationService.Navigate(adminFrm);
+                }
             }
 
 
         }
 
+        private void deleteItemMenu_Click(object sender, RoutedEventArgs e)
+        {
+            DeleteItem();
+            LoadContentToTable(_pageNo, _itemsPerPageForAdmin);
+        }
+        private async void DeleteItem()
+        {
+            string uri = String.Empty;
+            if (_mainCategoryName == "Books")
+            {
+                var selected = (Book)contentTableDgr.SelectedItem;
+                int Id = selected.BookId;
+                uri = $"/Book/DeleteBook/{Id}";
+            }
+            else if (_mainCategoryName == "Users")
+            {
+                var selected = (User)contentTableDgr.SelectedItem;
+                int Id = selected.UserId;
+                uri = $"/User/DeleteUser/{Id}";
+            }
+            else if (_mainCategoryName == "Issues")
+            {
+                var selected = (Issue)contentTableDgr.SelectedItem;
+                int Id = selected.IssueId;
+                uri = $"/Issue/DeleteIssue/{Id}";
+            }
+
+            HttpResponseMessage response = await Processor.InformationDelete(uri);
+            if(response.IsSuccessStatusCode)
+            {
+                MessageBox.Show("Deleted successfully");
+            }
+        }
     }
 
     

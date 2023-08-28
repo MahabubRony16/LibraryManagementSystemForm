@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "E:\\CODE\\GitHub\\LibraryManagementSystemForm\\HelperClasses\\HelperClasses.csproj": {}
+    "C:\\Users\\HP\\Documents\\GitHub\\LibraryManagementSystemForm\\HelperClasses\\HelperClasses.csproj": {}
   },
   "projects": {
-    "E:\\CODE\\GitHub\\LibraryManagementSystemForm\\HelperClasses\\HelperClasses.csproj": {
+    "C:\\Users\\HP\\Documents\\GitHub\\LibraryManagementSystemForm\\HelperClasses\\HelperClasses.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\CODE\\GitHub\\LibraryManagementSystemForm\\HelperClasses\\HelperClasses.csproj",
+        "projectUniqueName": "C:\\Users\\HP\\Documents\\GitHub\\LibraryManagementSystemForm\\HelperClasses\\HelperClasses.csproj",
         "projectName": "HelperClasses",
-        "projectPath": "E:\\CODE\\GitHub\\LibraryManagementSystemForm\\HelperClasses\\HelperClasses.csproj",
-        "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
-        "outputPath": "E:\\CODE\\GitHub\\LibraryManagementSystemForm\\HelperClasses\\obj\\",
+        "projectPath": "C:\\Users\\HP\\Documents\\GitHub\\LibraryManagementSystemForm\\HelperClasses\\HelperClasses.csproj",
+        "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\HP\\Documents\\GitHub\\LibraryManagementSystemForm\\HelperClasses\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -55,8 +55,7 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -65,7 +64,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.410\\RuntimeIdentifierGraph.json"
         }
       }
     }

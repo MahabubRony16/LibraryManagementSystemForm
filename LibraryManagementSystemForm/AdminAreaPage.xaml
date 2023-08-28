@@ -33,11 +33,11 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="10"/>
         </Grid.RowDefinitions>
-        <StackPanel Grid.Row="1" Grid.Column="1" Width="100" Orientation="Vertical">
-            <Button x:Name="showBooksBtn" Content="Tables" Height="25" Margin="0,5,0,5" Click="showBooksBtn_Click"/>
-            <Button x:Name="addBooksBtn" Content="Add Book" Height="25" Margin="0,5,0,5" Click="addBooksBtn_Click"/>
-            <Button x:Name="showIssuesBtn" Content="Issues" Height="25" Margin="0,5,0,5" Click="showIssuesBtn_Click"/>
-            <Button x:Name="taskBtn" Content="Tasks" Height="25" Margin="0,5,0,5" Click="taskBtn_Click"/>
+        <StackPanel Grid.Row="1" Grid.Column="1" Width="100" Orientation="Vertical" Margin="0,15,0,0">
+            <Button x:Name="showBooksBtn" Content="Tables" Height="20" Margin="0,5,0,5" Click="showTablesBtn_Click"/>
+            <Button x:Name="addBooksBtn" Content="Add Book" Height="20" Margin="0,5,0,5" Click="addBooksBtn_Click"/>
+            <Button x:Name="showIssuesBtn" Content="Edit User" Height="20" Margin="0,5,0,5" Click="showUsersBtn_Click"/>
+            <Button x:Name="taskBtn" Content="Add/Edit Issue" Height="20" Margin="0,5,0,5" Click="showIssuesBtn_Click"/>
         </StackPanel>
         <StackPanel Grid.Row="1" Grid.Column="2">
             <Frame x:Name="adminFrm" NavigationUIVisibility="Hidden"/>

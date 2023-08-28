@@ -96,3 +96,7 @@ E:\CODE\GitHub\LibraryManagementSystemForm\LibraryManagementSystemForm\obj\Debug
 E:\CODE\GitHub\LibraryManagementSystemForm\LibraryManagementSystemForm\obj\Debug\net5.0-windows\SearchWindow.baml
 E:\CODE\GitHub\LibraryManagementSystemForm\LibraryManagementSystemForm\obj\Debug\net5.0-windows\Admin_Tables.g.cs
 E:\CODE\GitHub\LibraryManagementSystemForm\LibraryManagementSystemForm\obj\Debug\net5.0-windows\Admin_Tables.baml
+C:\Users\HP\Documents\GitHub\LibraryManagementSystemForm\LibraryManagementSystemForm\obj\Debug\net5.0-windows\Admin_Tables.g.cs
+C:\Users\HP\Documents\GitHub\LibraryManagementSystemForm\LibraryManagementSystemForm\obj\Debug\net5.0-windows\Admin_Tables.baml
+C:\Users\HP\Documents\GitHub\LibraryManagementSystemForm\LibraryManagementSystemForm\obj\Debug\net5.0-windows\GoogleBooks.g.cs
+C:\Users\HP\Documents\GitHub\LibraryManagementSystemForm\LibraryManagementSystemForm\obj\Debug\net5.0-windows\GoogleBooks.baml

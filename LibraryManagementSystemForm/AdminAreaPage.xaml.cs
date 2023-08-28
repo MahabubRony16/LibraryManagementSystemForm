@@ -27,7 +27,7 @@ namespace LibraryManagementSystemForm
             InitializeComponent();
         }
 
-        private void showBooksBtn_Click(object sender, RoutedEventArgs e)
+        private void showTablesBtn_Click(object sender, RoutedEventArgs e)
         {
             adminFrm.Content = new Admin_Tables();
         }
@@ -42,9 +42,9 @@ namespace LibraryManagementSystemForm
             adminFrm.Content = new Admin_Issues();
         }
 
-        private void taskBtn_Click(object sender, RoutedEventArgs e)
+        private void showUsersBtn_Click(object sender, RoutedEventArgs e)
         {
-            //adminFrm.Content = new Admin_Tasks();
+            adminFrm.Content = new Admin_Users();
         }
     }
 }

@@ -1,7 +1,9 @@
-﻿using LibraryManagementSystemForm.Models;
+﻿using HelperClasses;
+using LibraryManagementSystemForm.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -24,11 +26,12 @@ namespace LibraryManagementSystemForm
         public Admin_Tasks(Book book = null)
         {
             InitializeComponent();
-            PopuletTextBoxes(book);
+            bookIdTbx.IsEnabled = false;
+            SetTextBoxValues(book);
             purchaseDateDpc.DisplayDateEnd = DateTime.Now;
         }
 
-        public void PopuletTextBoxes(Book book)
+        public void SetTextBoxValues(Book book)
         {
             if(book != null)
             {
@@ -40,9 +43,68 @@ namespace LibraryManagementSystemForm
                 priceTbx.Text = book.Price.ToString();
                 purchaseDateDpc.Text = book.PurchaseDate.ToString();
                 quantityTbx.Text = book.TotalQuantity.ToString();
+
+                addBookBtn.IsEnabled = false;
             }
 
         }
+
+        public Book GetTextBoxValues()
+        {
+            Book book = new Book();
+            book.BookId = int.Parse(bookIdTbx.Text);
+            book.Name = nameTbx.Text;
+            book.Author = authorTbx.Text;
+            book.Publisher = publisherTbx.Text;
+            book.Genre = genreTbx.Text;
+            book.Price = decimal.Parse(priceTbx.Text);
+            book.PurchaseDate = DateTime.Parse(purchaseDateDpc.Text);
+            book.TotalQuantity = int.Parse(quantityTbx.Text);
+
+            return book;
+        }
+
+
+
+        private async void ProcessBook(string operationType)
+        {
+            Book bookToEdit = GetTextBoxValues();
+            string uri = $"/Book/{operationType}Book";
+            HttpResponseMessage response = new HttpResponseMessage();
+            if (operationType == "Add")
+            {
+                response = await Processor.InformationPost<Book>(uri, bookToEdit);
+            }
+            else if (operationType == "Edit")
+            {
+                response = await Processor.InformationPut<Book>(uri, bookToEdit);
+            }
+            else if (operationType == "Delete")
+            {
+                uri += $"/{bookToEdit.BookId}";
+                response = await Processor.InformationDelete(uri);
+            }
+
+            if (response.IsSuccessStatusCode)
+            {
+                MessageBox.Show($"Book has been {operationType.ToLower()}ed successfully");
+            }
+        }
+
+        private void addBookBtn_Click(object sender, RoutedEventArgs e)
+        {
+            ProcessBook("Add");
+        }
+        private void editBookBtn_Click(object sender, RoutedEventArgs e)
+        {
+            ProcessBook("Edit");
+        }
+
+        private void deleteBookBtn_Click(object sender, RoutedEventArgs e)
+        {
+            ProcessBook("Delete");
+        }
+
         //private void NavigationService_LoadCompleted(object sender, NavigationEventArgs e)
         //{
         //    _passValue = (int)e.ExtraData;

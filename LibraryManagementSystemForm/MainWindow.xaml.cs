@@ -48,5 +48,10 @@ namespace LibraryManagementSystemForm
         {
             mainFrm.Content = new AdminAreaPage();
         }
+
+        private void googleBooksBtn_Click(object sender, RoutedEventArgs e)
+        {
+            new GoogleBooks().Show();
+        }
     }
 }

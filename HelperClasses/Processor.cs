@@ -54,6 +54,35 @@ namespace HelperClasses
             }
         }
 
-        
+        public async static Task<HttpResponseMessage> InformationPut<T>(string url, T data)
+        {
+            var jsonData = JsonConvert.SerializeObject(data);
+            var contentData = new StringContent(jsonData, Encoding.UTF8, "application/json");
+
+            using (HttpResponseMessage response = await ApiHelper.ApiClient.PutAsync(url, contentData))
+            {
+                return response;
+            }
+        }
+
+        public async static Task<T> GoogleInformationGet<T>(string textBoxVal)
+        {
+            string urlParameters = "?q=intitle" + textBoxVal;
+
+            using (HttpResponseMessage response = await ApiHelper.ApiClient.GetAsync(urlParameters))
+            {
+                if (response.IsSuccessStatusCode)
+                {
+                    T result = await response.Content.ReadAsAsync<T>();
+                    return result;
+                }
+                else
+                {
+                    throw new Exception(response.ReasonPhrase);
+                }
+            }
+        }
+
+
     }
 }

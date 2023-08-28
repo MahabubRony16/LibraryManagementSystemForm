@@ -3,6 +3,7 @@ using LibraryManagementSystemForm.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -22,75 +23,79 @@ namespace LibraryManagementSystemForm
     /// </summary>
     public partial class Admin_Users : Page
     {
-        private int _pageNo;
-        public Admin_Users()
+        public Admin_Users(User user = null)
         {
             InitializeComponent();
-            _pageNo = 1;
-            LoadUsers_Get(1, 50);
-        }
-        public async void LoadUsers_Get(int page = 0, int itemsPerPage = 0)
-        {
-            string searchString = CreateSearchString(searchTbx);
-            string uri = $"/User/GetUsers/{page}/{itemsPerPage}/{searchString}";
-            IEnumerable<User> userList = await Processor.InformationGet<IEnumerable<User>>(uri);
-            AllUsers.ItemsSource = userList;
-
-            pageNoTbl.Text = "Page " + _pageNo.ToString();
+            userIdTbx.IsEnabled = false;
+            emailTbx.IsEnabled = false;
+            SetTextBoxValues(user);
         }
 
-        public string CreateSearchString(TextBox txtBox = null)
+        public void SetTextBoxValues(User user)
         {
-            string searchCriteria = ((ComboBoxItem)searchCategoryCbx.SelectedItem).Content.ToString();
-
-            int userId = 0;
-            string name = "None";
-
-            if (txtBox != null)
+            if (user != null)
             {
-                TextBox searchTbx = txtBox;
-                if (!string.IsNullOrWhiteSpace(searchTbx.Text))
-                {
-                    if (searchCriteria == "User ID")
-                    {
-                        userId = Int32.Parse(searchTbx.Text);
-                    }
-                    else if (searchCriteria == "Name")
-                    {
-                        name = searchTbx.Text;
-                    }
-                }
+                userIdTbx.Text = user.UserId.ToString();
+                firstNameTbx.Text = user.FirstName;
+                lastNameTbx.Text = user.LastName;
+                emailTbx.Text = user.Email;
+                contactTbx.Text = user.Contact;
+                addressTbx.Text = user.Address;
+                ageTbx.Text = user.Age.ToString();
+                userTypeCbx.SelectedIndex = userTypeCbx.Items.IndexOf(user.UserType);
+                //userTypeCbx = ((ComboBoxItem)userTypeCbx.SelectedItem).Content.ToString();
             }
-            return $"{userId}/{name}";
-        }
-
-        private void searchBookBtn_Click(object sender, RoutedEventArgs e)
-        {
-            _pageNo = 1;
-            LoadUsers_Get(1, 50);
 
         }
 
-        private void prevBtn_Click(object sender, RoutedEventArgs e)
+        public User GetTextBoxValues()
         {
-            if (_pageNo > 1)
+            User user = new User();
+            user.UserId = int.Parse(userIdTbx.Text);
+            user.FirstName = firstNameTbx.Text;
+            user.LastName = lastNameTbx.Text;
+            user.Email = emailTbx.Text;
+            user.Contact = contactTbx.Text;
+            user.Address = addressTbx.Text;
+            user.Age = int.Parse(ageTbx.Text);
+            user.UserType = ((ComboBoxItem)userTypeCbx.SelectedItem).Content.ToString(); ;
+            return user;
+        }
+
+        private async void ProcessUser(string operationType)
+        {
+            User user = GetTextBoxValues();
+            string uri = $"/User/{operationType}User";
+            HttpResponseMessage response = new HttpResponseMessage();
+            if (operationType == "Add")
             {
-                if (_pageNo == 2)
-                {
-                    prevBtn.IsEnabled = false;
-                }
-                _pageNo--;
-                LoadUsers_Get(_pageNo, 50);
+                response = await Processor.InformationPost<User>(uri, user);
+            }
+            else if (operationType == "Edit")
+            {
+                response = await Processor.InformationPut<User>(uri, user);
+            }
+            else if (operationType == "Delete")
+            {
+                uri += $"/{user.UserId}";
+                response = await Processor.InformationDelete(uri);
+            }
 
+            if (response.IsSuccessStatusCode)
+            {
+                MessageBox.Show($"User has been {operationType.ToLower()}ed successfully");
             }
         }
 
-        private void nextBtn_Click(object sender, RoutedEventArgs e)
+        private void editBtn_Click(object sender, RoutedEventArgs e)
         {
-            _pageNo++;
-            LoadUsers_Get(_pageNo, 50);
-
-            prevBtn.IsEnabled = true;
+            ProcessUser("Edit");
         }
+
+        private void deleteBtn_Click(object sender, RoutedEventArgs e)
+        {
+            ProcessUser("Delete");
+        }
+
     }
 }

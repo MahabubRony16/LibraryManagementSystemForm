@@ -3,6 +3,7 @@ using LibraryManagementSystemForm.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -23,79 +24,78 @@ namespace LibraryManagementSystemForm
     /// </summary>
     public partial class Admin_Issues : Page
     {
-        private int _pageNo;
-        public Admin_Issues()
+        public Admin_Issues(Issue issue = null)
         {
             InitializeComponent();
-            _pageNo = 1;
-            LoadIssues_Get(1, 50);
-        }
-        public async void LoadIssues_Get(int page = 0, int itemsPerPage = 0)
-        {
-            string searchString = CreateSearchString(searchTbx);
-            string uri = $"/Issue/GetIssues/{page}/{itemsPerPage}/{searchString}";
-            IEnumerable<Issue> issueList = await Processor.InformationGet<IEnumerable<Issue>>(uri);
-            AllIssues.ItemsSource = issueList;
-
-            pageNoTbl.Text = "Page " + _pageNo.ToString();
+            SetTextBoxValues(issue);
         }
 
-        public string CreateSearchString(TextBox txtBox = null)
+        public void SetTextBoxValues(Issue issue)
         {
-            string searchCriteria = ((ComboBoxItem)searchCategoryCbx.SelectedItem).Content.ToString();
-
-            int issueId = 0;
-            int bookId = 0;
-            int userId = 0;
-
-            if (txtBox != null)
+            if (issue != null)
             {
-                TextBox searchTbx = txtBox;
-                if (!string.IsNullOrWhiteSpace(searchTbx.Text))
-                {
-                    if (searchCriteria == "Issue ID")
-                    {
-                        issueId = Int32.Parse(searchTbx.Text);
-                    }
-                    else if (searchCriteria == "Book ID")
-                    {
-                        bookId = Int32.Parse(searchTbx.Text);
-                    }
-                    else if (searchCriteria == "User ID")
-                    {
-                        userId = Int32.Parse(searchTbx.Text);
-                    }
-                }
+                issueIdTbx.Text = issue.IssueId.ToString();
+                bookIdTbx.Text = issue.BookId.ToString();
+                userIdTbx.Text = issue.UserId.ToString();
+                issueDateDpc.Text = issue.IssueDate.ToString();
+                returnDateDpc.Text = issue.ReturnDate.ToString();
+                addIssueBtn.IsEnabled = false;
+                issueIdTbx.IsEnabled = false;
             }
-            return $"{issueId}/{bookId}/{userId}";
+
         }
 
-        private void searchBookBtn_Click(object sender, RoutedEventArgs e)
+        public Issue GetTextBoxValues()
         {
-            _pageNo = 1;
-            LoadIssues_Get(1, 50);
+            Issue issue = new Issue();
+            //issue.IssueId = Int32.Parse(issueIdTbx.Text);
+            issue.BookId = Int32.Parse(bookIdTbx.Text);
+            issue.UserId = Int32.Parse(userIdTbx.Text);
+            MessageBox.Show(issueDateDpc.Text);
+            issue.IssueDate = DateTime.Parse(issueDateDpc.Text);
+            issue.ReturnDate = DateTime.Parse(returnDateDpc.Text);
+
+            return issue;
         }
 
-        private void prevBtn_Click(object sender, RoutedEventArgs e)
+
+
+        private async void ProcessBook(string operationType)
         {
-            if (_pageNo > 1)
+            Issue issue = GetTextBoxValues();
+            string uri = $"/Issue/{operationType}Issue";
+            HttpResponseMessage response = new HttpResponseMessage();
+            if (operationType == "Add")
             {
-                if (_pageNo == 2)
-                {
-                    prevBtn.IsEnabled = false;
-                }
-                _pageNo--;
-                LoadIssues_Get(_pageNo, 50);
+                response = await Processor.InformationPost<Issue>(uri, issue);
+            }
+            else if (operationType == "Edit")
+            {
+                response = await Processor.InformationPut<Issue>(uri, issue);
+            }
+            else if (operationType == "Delete")
+            {
+                uri += $"/{issue.IssueId}";
+                response = await Processor.InformationDelete(uri);
+            }
 
+            if (response.IsSuccessStatusCode)
+            {
+                MessageBox.Show($"Issue has been {operationType.ToLower()}ed successfully");
             }
         }
-
-        private void nextBtn_Click(object sender, RoutedEventArgs e)
+        private void addBtn_Click(object sender, RoutedEventArgs e)
         {
-            _pageNo++;
-            LoadIssues_Get(_pageNo, 50);
+            ProcessBook("Add");
+        }
+        private void editBtn_Click(object sender, RoutedEventArgs e)
+        {
+            ProcessBook("Edit");
+        }
 
-            prevBtn.IsEnabled = true;
+        private void deleteBtn_Click(object sender, RoutedEventArgs e)
+        {
+            ProcessBook("Delete");
         }
     }
 }

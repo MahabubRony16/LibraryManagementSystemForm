@@ -9,7 +9,8 @@ namespace HelperClasses
         public static void InitializeClient()
         {
             ApiClient = new HttpClient();
-            ApiClient.BaseAddress = new Uri("http://localhost:5000");
+            //ApiClient.BaseAddress = new Uri("http://localhost:5000");
+            ApiClient.BaseAddress = new Uri("https://www.googleapis.com/books/v1/volumes/");
             ApiClient.DefaultRequestHeaders.Accept.Clear();
             ApiClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 

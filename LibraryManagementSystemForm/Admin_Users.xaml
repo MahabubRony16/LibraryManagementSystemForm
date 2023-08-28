@@ -6,18 +6,21 @@
       xmlns:local="clr-namespace:LibraryManagementSystemForm"
       mc:Ignorable="d" 
       d:DesignHeight="380" d:DesignWidth="650"
-      Title="Admin_Books" Background="White">
+      Title="Admin_Users" Background="White" >
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="30"/>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="10"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="10"/>
+            <RowDefinition Height="20"/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
@@ -33,29 +36,37 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="10"/>
         </Grid.RowDefinitions>
-        <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" Width="600" Margin="0,10,0,10">
-            <ComboBox x:Name="searchCategoryCbx" Width="80" Height="22" SelectedIndex="0" Foreground="#FF686868">
-                <ComboBoxItem Content="User ID"/>
-                <ComboBoxItem Content="Name"/>
-            </ComboBox>
-            <TextBox x:Name="searchTbx" Width="300" />
-            <Button x:Name="searchBtn" Content="Search" Width="70" Margin="10,0,0,0" Click="searchBookBtn_Click"/>
-        </StackPanel>
-        <DataGrid x:Name="AllUsers" Grid.Row="2" Grid.Column="1" Width="600" Margin="10,0,0,0" IsReadOnly="True">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="User ID" Binding="{Binding UserId}" />
-                <DataGridTextColumn Header="First Name" Binding="{Binding FirstName}" />
-                <DataGridTextColumn Header="Last Name" Binding="{Binding LastName}" />
-                <DataGridTextColumn Header="Email" Binding="{Binding Email}" />
-                <DataGridTextColumn Header="Contact" Binding="{Binding Contact}" />
-                <DataGridTextColumn Header="Address" Binding="{Binding Address}" />
-                <DataGridTextColumn Header="User Type" Binding="{Binding UserType}" />
-            </DataGrid.Columns>
-        </DataGrid>
-        <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Right" Margin="0,5,0,0">
-            <Button x:Name="prevBtn" Content="Prev" Width="40" Margin="0,0,0,0" Click="prevBtn_Click" />
-            <TextBlock x:Name="pageNoTbl" Width="50" TextAlignment="Center"/>
-            <Button x:Name="nextBtn" Content="Next" Width="40" Margin="0,0,0,0" Click="nextBtn_Click" />
+
+
+        <TextBlock Grid.Row="1" Grid.Column="1" Margin="0,5,0,5" Text="User ID" FontSize="16" FontFamily="Centaur"/>
+        <TextBox x:Name="userIdTbx" Grid.Row="1" Grid.Column="2" Margin="0,5,0,5" Width="130" HorizontalAlignment="Left"/>
+
+        <TextBlock Grid.Row="2" Grid.Column="1" Margin="0,5,0,5" Text="First Name" FontSize="16" FontFamily="Centaur"/>
+        <TextBox x:Name="firstNameTbx" Grid.Row="2" Grid.Column="2" Margin="0,5,0,5" Width="250" HorizontalAlignment="Left" TextWrapping="Wrap"/>
+
+        <TextBlock Grid.Row="3" Grid.Column="1" Margin="0,5,0,5" Text="Last Name" FontSize="16" FontFamily="Centaur"/>
+        <TextBox x:Name="lastNameTbx" Grid.Row="3" Grid.Column="2" Margin="0,5,0,5" Width="250" HorizontalAlignment="Left"/>
+
+        <TextBlock Grid.Row="4" Grid.Column="1" Margin="0,5,0,5" Text="Email" FontSize="16" FontFamily="Centaur"/>
+        <TextBox x:Name="emailTbx" Grid.Row="4" Grid.Column="2" Margin="0,5,0,5" Width="250" HorizontalAlignment="Left"/>
+
+        <TextBlock Grid.Row="5" Grid.Column="1" Margin="0,5,0,5" Text="Contact" FontSize="16" FontFamily="Centaur"/>
+        <TextBox x:Name="contactTbx" Grid.Row="5" Grid.Column="2" Margin="0,5,0,5" Width="130" HorizontalAlignment="Left"/>
+
+        <TextBlock Grid.Row="6" Grid.Column="1" Margin="0,5,0,5" Text="Address" FontSize="16" FontFamily="Centaur"/>
+        <TextBox x:Name="addressTbx" Grid.Row="6" Grid.Column="2" Margin="0,5,0,5" Width="150" Height="50" HorizontalAlignment="Left"/>
+
+        <TextBlock Grid.Row="7" Grid.Column="1" Margin="0,5,0,5" Text="Age" FontSize="16" FontFamily="Centaur"/>
+        <TextBox x:Name="ageTbx" Grid.Row="7" Grid.Column="2" Margin="0,5,0,5" Width="50" HorizontalAlignment="Left"/>
+
+        <TextBlock Grid.Row="8" Grid.Column="1" Margin="0,5,0,5" Text="User Type" FontSize="16" FontFamily="Centaur"/>
+        <ComboBox x:Name="userTypeCbx" Grid.Row="8" Grid.Column="2" Width="80" Height="20" HorizontalAlignment="Left" SelectedIndex="0" >
+            <ComboBoxItem Content="User"/>
+            <ComboBoxItem Content="Admin"/>
+        </ComboBox>
+        <StackPanel Grid.Row="9" Grid.Column="1" Margin="0,20,0,0" Orientation="Horizontal" Grid.ColumnSpan="2">
+            <Button x:Name="editBookBtn" Content="Edit User" Width="80" Height="25" Margin="0,0,5,0" Click="editBtn_Click"/>
+            <Button x:Name="deleteBookBtn" Content="Delete User" Width="80" Height="25" Margin="5,0,5,0" Click="deleteBtn_Click"/>
         </StackPanel>
     </Grid>
 </Page>

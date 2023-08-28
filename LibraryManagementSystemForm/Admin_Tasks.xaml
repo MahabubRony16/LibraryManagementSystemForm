@@ -63,8 +63,9 @@
         <TextBox x:Name="quantityTbx" Grid.Row="8" Grid.Column="2" Margin="0,5,0,5" Width="50" HorizontalAlignment="Left"/>
 
         <StackPanel Grid.Row="9" Grid.Column="1" Margin="0,20,0,0" Orientation="Horizontal" Grid.ColumnSpan="2">
-            <Button x:Name="addBookBtn" Content="Add Book" Width="80" Height="25" Margin="0,0,5,0"/>
-            <Button x:Name="editBookBtn" Content="Edit Book" Width="80" Height="25" Margin="5,0,5,0"/>
+            <Button x:Name="addBookBtn" Content="Add Book" Width="80" Height="25" Margin="0,0,5,0" Click="addBookBtn_Click" />
+            <Button x:Name="editBookBtn" Content="Edit Book" Width="80" Height="25" Margin="5,0,5,0" Click="editBookBtn_Click"/>
+            <Button x:Name="deleteBookBtn" Content="Delete Book" Width="80" Height="25" Margin="5,0,5,0" Click="deleteBookBtn_Click"/>
         </StackPanel>
 
     </Grid>
