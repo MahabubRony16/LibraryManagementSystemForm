@@ -29,31 +29,29 @@ namespace LibraryManagementSystemForm
             ApiHelper.InitializeClient();
         }
 
-
-        private async void applyBtn_Click(object sender, RoutedEventArgs e)
+        private void registrationBtn_Click(object sender, RoutedEventArgs e)
         {
-            UserForRegistration userForRegistration = new UserForRegistration()
-            {
-                FirstName = firstNameTbx.Text,
-                LastName = lastNameTbx.Text,
-                Email = emailTbx.Text,
-                Contact = contactTbx.Text,
-                Address = addressTbx.Text,
+            new RegistrationForm().Show();
+        }
 
-                Password = passwordTbx.Text,
-                PasswordConfirm = confirmPasswordTbx.Text
-            };
+        private void booksPageBtn_Click(object sender, RoutedEventArgs e)
+        {
+            mainFrm.Content = new Books();
+        }
 
-            TestConnectionDto userInfo = new TestConnectionDto()
-            {
-                FirstName = firstNameTbx.Text,
-                LastName = lastNameTbx.Text,
-                te = 75
-            };
+        private void loginFormBtn_Click(object sender, RoutedEventArgs e)
+        {
+            new LoginForm().Show();
+        }
 
-            HttpStatusCode statusCode = await Processor.LoadInformationPost<UserForRegistration>("/Auth/Register", userForRegistration);
-            Console.WriteLine(statusCode.ToString());
+        private void adminAreaBtn_Click(object sender, RoutedEventArgs e)
+        {
+            mainFrm.Content = new AdminAreaPage();
+        }
 
+        private void googleBooksBtn_Click(object sender, RoutedEventArgs e)
+        {
+            new GoogleBooks().Show();
         }
     }
 }
