@@ -6,55 +6,53 @@
         xmlns:local="clr-namespace:LibraryManagementSystemForm"
         xmlns:System="clr-namespace:System;assembly=System.Runtime" x:Class="LibraryManagementSystemForm.GoogleBooks"
         mc:Ignorable="d"
-        Title="GoogleBooks" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+        Title="GoogleBooks" Height="1000" WindowStartupLocation="CenterScreen" ResizeMode="CanResize">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="20"/>
-            <ColumnDefinition Width="auto"/>
-            <ColumnDefinition Width="auto"/>
-            <ColumnDefinition Width="auto"/>
-            <ColumnDefinition Width="auto"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="20"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="20"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="20"/>
-        </Grid.RowDefinitions>
-        <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal">
-            <ComboBox x:Name="searchFieldsCbx" Width="80" Height="22" SelectedIndex="0" Foreground="#FF686868"/>
-            <TextBox x:Name="searchStringTbx" Width="200"/>
-            <Button x:Name="searchBtn" Width="50" Content="Search" Click="searchBtn_Click"/>
-            <TextBlock Text="Max Result: " Width="70" Margin="20,0,0,0" VerticalAlignment="Center"/>
-            <Slider x:Name="maxResultsSdr" Minimum="1" Maximum="40" Margin="0,0,0,0" Width="100" VerticalAlignment="Center" Value="10" SmallChange="1" IsSnapToTickEnabled="True" AutoToolTipPlacement="TopLeft" AutoToolTipPrecision="0" />
-            <TextBlock Width="20" Margin="0,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Stretch"/>
-        </StackPanel>
-        <ListView x:Name="booksCvw" Grid.Row="2" Grid.Column="1" Grid.RowSpan="2" Height="290" MaxWidth="700" Margin="0,5,0,0" >
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Orientation="Horizontal" Margin="0,5,0,5" >
-                        <Image x:Name="thumbnaiMel" Width="50" Source="{Binding volumeInfo.imageLinks.smallThumbnail}" />
-                        <StackPanel Orientation="Vertical" Margin="10,5,0,5">
-                            <TextBlock FontSize="16" Text="{Binding volumeInfo.title}"/>
-                            <TextBlock FontSize="12" Text="{Binding volumeInfo.authors[0]}"/>
-                        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <StackPanel Orientation="Vertical" Margin="20,20,20,10">
+                <StackPanel Orientation="Horizontal" Height="22">
+                    <ComboBox x:Name="searchFieldsCbx" Width="80" Height="22" SelectedIndex="0" Foreground="#FF686868"/>
+                    <TextBox x:Name="searchStringTbx" MinWidth="220"/>
+                    <Button x:Name="searchBtn" Width="50" Content="Search" Click="searchBtn_Click"/>
+                    <TextBlock Text="Max Result: " Width="70" Margin="20,0,0,0" VerticalAlignment="Center"/>
+                    <Slider x:Name="maxResultsSdr" Minimum="1" Maximum="40" Margin="0,0,0,0" Width="80" VerticalAlignment="Center" Value="10" SmallChange="1" IsSnapToTickEnabled="True" AutoToolTipPlacement="TopLeft" AutoToolTipPrecision="0" />
+                    <TextBlock Width="20" Margin="0,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Stretch"/>
+                </StackPanel>
+                <StackPanel Margin="0,0,0,0">
+                    <ListView x:Name="booksCvw" Width="550" MinHeight="100" MaxHeight="900" Margin="0,5,0,0" MouseDoubleClick="booksCvw_MouseDoubleClick" >
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal" Margin="0,5,0,5" >
+                                    <Image x:Name="thumbnaiMel" Width="50" Source="{Binding volumeInfo.imageLinks.smallThumbnail}" />
+                                    <StackPanel x:Name="listedBookSpl" Orientation="Vertical" Margin="10,5,0,5" >
+                                        <TextBlock FontSize="16" Text="{Binding volumeInfo.title}" TextWrapping="Wrap"/>
+                                        <TextBlock FontSize="12" Text="{Binding volumeInfo.authors[0]}" TextWrapping="Wrap"/>
+                                    </StackPanel>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" Margin="10,50,20,20" >
+                <StackPanel Orientation="Horizontal">
+                    <Image x:Name="detailImage" Width="180" />
+                    <StackPanel Orientation="Vertical" VerticalAlignment="Stretch" Margin="10,0,0,0" MaxWidth="500">
+                        <TextBlock x:Name="titleTbl" FontSize="24" TextWrapping="Wrap" HorizontalAlignment="Stretch"/>
+                        <TextBlock x:Name="subTitleTbl" FontSize="18" TextWrapping="Wrap" HorizontalAlignment="Stretch"/>
                     </StackPanel>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-        <TextBox x:Name="searchParameterUriTbx" Grid.Row="4" Grid.Column="1"/>
+                </StackPanel>
+                
+                <StackPanel Orientation="Vertical" Margin="0,20,0,0">
+                    <TextBlock x:Name="descriptionTbl" FontSize="16" TextWrapping="Wrap" Width="680" MaxHeight="500" TextAlignment="Justify" />
+                    <TextBlock x:Name="authorTbl"  FontSize="14"  TextWrapping="Wrap" />
+                    <TextBlock x:Name="publisherTbl" FontSize="14" />
+                    <TextBlock x:Name="publishedDateTbl" FontSize="14" />
+                    <TextBlock x:Name="isbnTbl" FontSize="14" />
+                    <TextBlock x:Name="pageCountTbl" FontSize="14" />
+                    <TextBlock x:Name="languageTbl" FontSize="14" />
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Window>

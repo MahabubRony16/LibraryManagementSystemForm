@@ -28,6 +28,9 @@
     <Compile Update="BooksPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Dummy.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="GoogleBooks.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -64,6 +67,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="BooksPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Dummy.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="GoogleBooks.xaml">

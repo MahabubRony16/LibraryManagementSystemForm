@@ -4,6 +4,7 @@ using LibraryManagementSystemForm.Models.GoogleBooks;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
@@ -42,16 +43,15 @@ namespace LibraryManagementSystemForm
 
         private async void RunApi(string uri)
         {
-            MessageBox.Show(uri);
-            searchParameterUriTbx.Text = uri;
+            //MessageBox.Show(uri);
             try
             {
-                //GoogleBookMetadata googleBook = await Processor.GoogleInformationGet<GoogleBookMetadata>(uri);
-                GoogleBook googleBook = await Processor.GoogleInformationGet<GoogleBook>(uri);
-                MessageBox.Show(googleBook.totalItems.ToString());
-                //IEnumerable<Item> volumes = googleBook.items;
-                //WriteToJsonFile(googleBook);
-                //booksCvw.ItemsSource = volumes;
+                GoogleBookMetadata googleBook = await Processor.GoogleInformationGet<GoogleBookMetadata>(uri);
+                //GoogleBook googleBook = await Processor.GoogleInformationGet<GoogleBook>(uri);
+                //MessageBox.Show(googleBook.totalItems.ToString());
+                IEnumerable<Item> volumes = googleBook.items;
+                WriteToJsonFile(googleBook);
+                booksCvw.ItemsSource = volumes;
             }
             catch
             {
@@ -62,7 +62,7 @@ namespace LibraryManagementSystemForm
         }
         private void WriteToJsonFile<T>(T model)
         {
-            string file = "C:\\Users\\HP\\Downloads\\GoogleBookInfo.json";
+            string file = "C:\\Users\\Lenovo\\Downloads\\GoogleBookInfo.json";
             string json = JsonConvert.SerializeObject(model);
             File.WriteAllText(file, json);
         }
@@ -91,5 +91,50 @@ namespace LibraryManagementSystemForm
             return urlParameters;
         }
 
+        private void SetBookDetails(Item book)
+        {
+            //MessageBox.Show("Populating details");
+            try 
+            { 
+                detailImage.Source = new BitmapImage(new Uri(book.volumeInfo.imageLinks.thumbnail, UriKind.RelativeOrAbsolute)); 
+            }
+            catch
+            {
+
+            }
+            
+            titleTbl.Text = book.volumeInfo.title;
+            subTitleTbl.Text = book.volumeInfo.subtitle;
+            descriptionTbl.Text = book.volumeInfo.description;
+
+            string authorsList = String.Empty;
+            foreach(string author in book.volumeInfo.authors)
+            {
+                authorsList += ", " + author;
+            }
+            if (authorsList.StartsWith(","))
+            {
+                authorsList = authorsList[2..];
+            }
+
+            authorTbl.Text = "Author:                   " + authorsList;
+            publisherTbl.Text = "Publisher:               " + book.volumeInfo.publisher;
+            publishedDateTbl.Text = "Published Date:      " + book.volumeInfo.publishedDate;
+            pageCountTbl.Text = "Page count:             " + book.volumeInfo.pageCount.ToString();
+            languageTbl.Text = "Language:               " + book.volumeInfo.language;
+        }
+
+
+        private void booksCvw_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            Item selectedBook = (Item)booksCvw.SelectedItem;
+            //MessageBox.Show(selectedBook.id);
+            if (selectedBook != null)
+            {
+                SetBookDetails(selectedBook);
+            }
+
+            var cultureInfo = new CultureInfo("en");
+        }
     }
 }

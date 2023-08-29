@@ -38,7 +38,7 @@
             <Button x:Name="loginFormBtn" Content="Sign In" Width="80" Margin="5,0,5,0" Click="loginFormBtn_Click"/>
             <Button x:Name="booksPageBtn" Content="Books" Width="80" Margin="5,0,5,0" Click="booksPageBtn_Click"/>
             <Button x:Name="adminAreaBtn" Content="Admin Area" Width="80" Margin="5,0,5,0" Click="adminAreaBtn_Click"/>
-            <Button x:Name="googleBooksBtn" Content="Google Books" Width="80" Margin="5,0,5,0" Click="googleBooksBtn_Click"/>
+            <Button x:Name="googleBooksBtn" Content="Google Books" Width="100" Margin="5,0,5,0" Click="googleBooksBtn_Click"/>
         </StackPanel>
         <Frame x:Name="mainFrm" Grid.Row="2" Grid.Column="1" Margin="10,0,0,0" NavigationUIVisibility="Hidden"/>
     </Grid>

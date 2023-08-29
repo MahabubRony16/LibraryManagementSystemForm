@@ -52,6 +52,7 @@ namespace LibraryManagementSystemForm
         private void googleBooksBtn_Click(object sender, RoutedEventArgs e)
         {
             new GoogleBooks().Show();
+            //new Dummy().Show();
         }
     }
 }
