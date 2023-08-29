@@ -65,10 +65,8 @@ namespace HelperClasses
             }
         }
 
-        public async static Task<T> GoogleInformationGet<T>(string textBoxVal)
+        public async static Task<T> GoogleInformationGet<T>(string urlParameters)
         {
-            string urlParameters = "?q=intitle" + textBoxVal;
-
             using (HttpResponseMessage response = await ApiHelper.ApiClient.GetAsync(urlParameters))
             {
                 if (response.IsSuccessStatusCode)
