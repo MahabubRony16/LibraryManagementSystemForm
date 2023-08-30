@@ -9,5 +9,6 @@ namespace LibraryManagementSystemForm.Models.GoogleBooks
     public class Epub
     {
         public bool isAvailable { get; set; }
+        public string downloadLink { get; set; } = "";
     }
 }

@@ -6,20 +6,40 @@
         xmlns:local="clr-namespace:LibraryManagementSystemForm"
         xmlns:System="clr-namespace:System;assembly=System.Runtime" x:Class="LibraryManagementSystemForm.GoogleBooks"
         mc:Ignorable="d"
-        Title="GoogleBooks" Height="1000" WindowStartupLocation="CenterScreen" ResizeMode="CanResize">
+        Title="GoogleBooks" Width="605" MinWidth="605" Height="400" MinHeight="400" WindowStartupLocation="CenterScreen" ResizeMode="CanResize" Background="#FF2D2D30" Foreground="#FFD8D8D8" >
     <Grid>
         <StackPanel Orientation="Horizontal">
             <StackPanel Orientation="Vertical" Margin="20,20,20,10">
                 <StackPanel Orientation="Horizontal" Height="22">
-                    <ComboBox x:Name="searchFieldsCbx" Width="80" Height="22" SelectedIndex="0" Foreground="#FF686868"/>
-                    <TextBox x:Name="searchStringTbx" MinWidth="220"/>
-                    <Button x:Name="searchBtn" Width="50" Content="Search" Click="searchBtn_Click"/>
+                    <ComboBox x:Name="searchFieldsCbx" Width="80" Height="22" SelectedIndex="0" Foreground="#FF3C3C3C" Background="Black" BorderBrush="#FFAC4242" OpacityMask="#FF48DCD5"/>
+                    <TextBox x:Name="searchStringTbx" MinWidth="220" Background="#FF1C1C1C" BorderBrush="#FF494949" Foreground="White"/>
+                    <Button x:Name="searchBtn" Width="50" Content="Search" Click="searchBtn_Click" Background="#FF686868" Foreground="White"/>
                     <TextBlock Text="Max Result: " Width="70" Margin="20,0,0,0" VerticalAlignment="Center"/>
-                    <Slider x:Name="maxResultsSdr" Minimum="1" Maximum="40" Margin="0,0,0,0" Width="80" VerticalAlignment="Center" Value="10" SmallChange="1" IsSnapToTickEnabled="True" AutoToolTipPlacement="TopLeft" AutoToolTipPrecision="0" />
-                    <TextBlock Width="20" Margin="0,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Stretch"/>
+                    <Slider x:Name="maxResultsSdr" Minimum="1" Maximum="40" Margin="0,0,0,0" Width="80" VerticalAlignment="Center" Value="10" SmallChange="1" IsSnapToTickEnabled="True" ValueChanged="maxResultsSdr_ValueChanged" Foreground="#FFBDBDBD" />
+                    <TextBlock x:Name="maxResultsValueTbl" Width="20" Margin="5,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Stretch"/>
                 </StackPanel>
+                <Expander x:Name="advancedSearchExr" Header="Advanced Search" Margin="0,10,0,0" Expanded="advancedSearchExr_Expanded" Collapsed="advancedSearchExr_Collapsed" Foreground="#FFEAEAEA">
+                    <StackPanel Orientation="Vertical">
+                        <StackPanel Orientation="Horizontal" Margin="0,2,0,2">
+                            <TextBlock Text="Download Formate:" Width="105" VerticalAlignment="Center" Foreground="#FFEAEAEA"/>
+                            <ComboBox x:Name="downloadFormateCbx" SelectedIndex="0" Height="22" Margin="10,0,0,0"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="0,2,0,2">
+                            <TextBlock Text="Filter:" Width="105" VerticalAlignment="Center" Foreground="#FFEAEAEA"/>
+                            <ComboBox x:Name="filterCbx" SelectedIndex="0" Height="22" Margin="10,0,0,0"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="0,2,0,2">
+                            <TextBlock Text="Print Type:" Width="105" VerticalAlignment="Center" Foreground="#FFEAEAEA"/>
+                            <ComboBox x:Name="printTypeCbx" SelectedIndex="0" Height="22" Margin="10,0,0,0"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="0,2,0,2">
+                            <TextBlock Text="Sort:" Width="105" VerticalAlignment="Center" Foreground="#FFEAEAEA"/>
+                            <ComboBox x:Name="sortCbx" SelectedIndex="0" Height="22" Margin="10,0,0,0"/>
+                        </StackPanel>
+                    </StackPanel>
+                </Expander>
                 <StackPanel Margin="0,0,0,0">
-                    <ListView x:Name="booksCvw" Width="550" MinHeight="100" MaxHeight="900" Margin="0,5,0,0" MouseDoubleClick="booksCvw_MouseDoubleClick" >
+                    <ListView x:Name="booksCvw" Width="550" MinHeight="100" MaxHeight="700" Margin="0,5,0,0" MouseDoubleClick="booksCvw_MouseDoubleClick" Background="#FF212121" Foreground="#FFEAEAEA" BorderBrush="#FF818181" >
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal" Margin="0,5,0,5" >
@@ -34,18 +54,22 @@
                     </ListView>
                 </StackPanel>
             </StackPanel>
-            <StackPanel Orientation="Vertical" Margin="10,50,20,20" >
+            <StackPanel Orientation="Vertical" Margin="10,80,20,20" >
                 <StackPanel Orientation="Horizontal">
-                    <Image x:Name="detailImage" Width="180" />
+                    <Image x:Name="detailImage" Width="150" />
                     <StackPanel Orientation="Vertical" VerticalAlignment="Stretch" Margin="10,0,0,0" MaxWidth="500">
-                        <TextBlock x:Name="titleTbl" FontSize="24" TextWrapping="Wrap" HorizontalAlignment="Stretch"/>
+                        <TextBlock x:Name="titleTbl" FontSize="24" TextWrapping="Wrap" HorizontalAlignment="Stretch" VerticalAlignment="Top"/>
                         <TextBlock x:Name="subTitleTbl" FontSize="18" TextWrapping="Wrap" HorizontalAlignment="Stretch"/>
+                        <TextBlock x:Name="ratingTbl" FontSize="14" Margin="0,10,0,0" />
                     </StackPanel>
                 </StackPanel>
-                
+                <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+                    <Button x:Name="downloadPageBtn" Content="Download" Width="72.5" Click="downloadPageBtn_Click" Margin="0,0,2.5,0"/>
+                    <Button x:Name="previewPageBtn" Content="Preview" Width="72.5" Click="previewPageBtn_Click" Margin="2.5,0,0,0"/>
+                </StackPanel>
                 <StackPanel Orientation="Vertical" Margin="0,20,0,0">
                     <TextBlock x:Name="descriptionTbl" FontSize="16" TextWrapping="Wrap" Width="680" MaxHeight="500" TextAlignment="Justify" />
-                    <TextBlock x:Name="authorTbl"  FontSize="14"  TextWrapping="Wrap" />
+                    <TextBlock x:Name="authorTbl"  FontSize="14"  TextWrapping="Wrap" Margin="0,20,0,0" />
                     <TextBlock x:Name="publisherTbl" FontSize="14" />
                     <TextBlock x:Name="publishedDateTbl" FontSize="14" />
                     <TextBlock x:Name="isbnTbl" FontSize="14" />

@@ -104,3 +104,5 @@ E:\CODE\GitHub\LibraryManagementSystemForm\LibraryManagementSystemForm\obj\Debug
 E:\CODE\GitHub\LibraryManagementSystemForm\LibraryManagementSystemForm\obj\Debug\net5.0-windows\GoogleBooks.baml
 E:\CODE\GitHub\LibraryManagementSystemForm\LibraryManagementSystemForm\obj\Debug\net5.0-windows\Dummy.g.cs
 E:\CODE\GitHub\LibraryManagementSystemForm\LibraryManagementSystemForm\obj\Debug\net5.0-windows\Dummy.baml
+C:\Users\HP\Documents\GitHub\LibraryManagementSystemForm\LibraryManagementSystemForm\obj\Debug\net5.0-windows\Dummy.g.cs
+C:\Users\HP\Documents\GitHub\LibraryManagementSystemForm\LibraryManagementSystemForm\obj\Debug\net5.0-windows\Dummy.baml
