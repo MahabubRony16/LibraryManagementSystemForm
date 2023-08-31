@@ -1,10 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "C9a9/rKNFQS/KF/M3t8VugN44hANdbIPZg1w4UpEyrVGVytxSvA1XVUEuFzxEtrRj/kjazX4wjpW6MEZkKR87A==",
+  "dgSpecHash": "o1SyOfoDMmCZ+4CAZzDb3X1yIb9qP1VEctmU+QoIZ1Cz2V5cNxApDm9LdEeZMq1NIkf7SFCGBEv3MoaOY2lQ0g==",
   "success": true,
   "projectFilePath": "E:\\CODE\\GitHub\\LibraryManagementSystemForm\\LibraryManagementSystemForm\\LibraryManagementSystemForm.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Lenovo\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
+    "C:\\Users\\Lenovo\\.nuget\\packages\\dapper\\2.0.151\\dapper.2.0.151.nupkg.sha512",
     "C:\\Users\\Lenovo\\.nuget\\packages\\microsoft.aspnet.webapi.client\\5.2.9\\microsoft.aspnet.webapi.client.5.2.9.nupkg.sha512",
+    "C:\\Users\\Lenovo\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\Lenovo\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Users\\Lenovo\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
     "C:\\Users\\Lenovo\\.nuget\\packages\\microsoft.win32.primitives\\4.3.0\\microsoft.win32.primitives.4.3.0.nupkg.sha512",

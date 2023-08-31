@@ -117,7 +117,7 @@ namespace LibraryManagementSystemForm {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/LibraryManagementSystemForm;component/admin_issues.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/LibraryManagementSystemForm;V1.0.0.0;component/admin_issues.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\Admin_Issues.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
