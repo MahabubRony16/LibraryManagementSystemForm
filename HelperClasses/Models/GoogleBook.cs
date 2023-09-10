@@ -1,6 +1,6 @@
 using System;
 
-namespace LibraryManagementSystemForm.Models
+namespace HelperClasses.Models
 {
     public class GoogleBook
     { 

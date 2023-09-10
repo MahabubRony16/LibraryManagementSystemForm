@@ -78,41 +78,7 @@ namespace HelperClasses
 
         public void addGoogleBookToDb(GoogleBook book)
         {
-            MapperConfiguration mapperConfig = new MapperConfiguration((cfg) =>
-            {
-                cfg.CreateMap<Item, GoogleBook>()
-                .ForMember(destination => destination.Title, options =>
-                options.MapFrom(source => source.volumeInfo.title))
-                .ForMember(destination => destination.Subtitle, options =>
-                options.MapFrom(source => source.volumeInfo.subtitle))
-                .ForMember(destination => destination.AuthorOne, options =>
-                options.MapFrom(source => source.volumeInfo.authors[0]))
-                .ForMember(destination => destination.AuthorTwo, options =>
-                options.MapFrom(source => source.volumeInfo.authors[1]))
-                .ForMember(destination => destination.AuthorThree, options =>
-                options.MapFrom(source => source.volumeInfo.authors[2]))
-                .ForMember(destination => destination.AuthorFour, options =>
-                options.MapFrom(source => source.volumeInfo.authors[3]))
-                .ForMember(destination => destination.AuthorFive, options =>
-                options.MapFrom(source => source.volumeInfo.authors[4]))
-                .ForMember(destination => destination.Publisher, options =>
-                options.MapFrom(source => source.volumeInfo.publisher))
-                .ForMember(destination => destination.PublishedDate, options =>
-                options.MapFrom(source => source.volumeInfo.publishedDate))
-                .ForMember(destination => destination.Description, options =>
-                options.MapFrom(source => source.volumeInfo.description))
-                .ForMember(destination => destination.BookPageCount, options =>
-                options.MapFrom(source => source.volumeInfo.pageCount))
-                .ForMember(destination => destination.SmallThumbnail, options =>
-                options.MapFrom(source => source.volumeInfo.imageLinks.smallThumbnail))
-                .ForMember(destination => destination.Thumbnail, options =>
-                options.MapFrom(source => source.volumeInfo.imageLinks.thumbnail))
-                .ForMember(destination => destination.Language, options =>
-                options.MapFrom(source => source.volumeInfo.language))
-                .ForMember(destination => destination.DownloadLink, options =>
-                options.MapFrom(source => source.accessInfo.epub.downloadLink));
-
-            });
+            
         }
 
     }
